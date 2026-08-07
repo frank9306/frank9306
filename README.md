@@ -1,12 +1,14 @@
-![刘帅 - Python / RPA / 浏览器自动化工程师](./github-frank9306-banner.png)
+![Frank - Python, RPA, and Browser Automation Engineer](./github-frank9306-banner.png)
 
-## 你好，我是刘帅
+## Hi, I'm Frank
 
-一名拥有近 10 年软件研发经验的工程师。近 3 年专注于指纹浏览器自动化引擎与 RPA 平台研发，此前长期参与 Linux 云桌面与虚拟化产品开发。
+I'm a software engineer with nearly 10 years of experience. For the past three years, I have focused on anti-detect browser automation engines and RPA platforms. Before that, I worked extensively on Linux cloud desktop and virtualization products.
 
-目前主要使用 Python、TypeScript 和 JavaScript，实践方向包括浏览器自动化、任务调度、Python 后端、桌面客户端与多平台交付。我也在探索如何将 Agent Skills、Codex / Claude 等 AI 工具融入 RPA 脚本生成、调试、审查与发布流程。
+I primarily work with Python, TypeScript, and JavaScript across browser automation, task scheduling, backend services, desktop clients, and cross-platform delivery. I also explore how Agent Skills and AI development tools such as Codex and Claude can improve RPA script generation, debugging, review, and delivery workflows.
 
-技术关注：`Python` · `Playwright` · `FastAPI` · `GraphQL` · `MongoDB` · `Redis` · `React` · `Linux` · `QEMU / KVM` · `AI Agent`
+Areas of focus: `Python` · `Playwright` · `FastAPI` · `GraphQL` · `MongoDB` · `Redis` · `React` · `Linux` · `QEMU / KVM` · `AI Agents`
 
-- 技术博客：[knowledge.webfrank.top](https://knowledge.webfrank.top/)
-- GitHub：[@frank9306](https://github.com/frank9306)
+- Technical blog: [knowledge.webfrank.top](https://knowledge.webfrank.top/)
+- GitHub: [@frank9306](https://github.com/frank9306)
+- Email: [liufrank621@gmail.com](mailto:liufrank621@gmail.com)
+- Telegram: [@frankl0622](https://t.me/frankl0622)
