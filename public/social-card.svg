@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f2efe6"/>
+  <path d="M0 96h1200M0 534h1200" stroke="#c7c1b2"/>
+  <text x="84" y="102" font-family="monospace" font-size="22" fill="#123f67">WEBFRANK.TOP / PERSONAL INDEX</text>
+  <text x="82" y="330" font-family="Georgia,serif" font-size="108" fill="#191919">Frank</text>
+  <text x="88" y="398" font-family="Arial,sans-serif" font-size="34" fill="#44433f">Developer &amp; Builder</text>
+  <circle cx="1100" cy="315" r="36" fill="#123f67"/>
+</svg>

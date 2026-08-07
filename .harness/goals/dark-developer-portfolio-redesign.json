@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "id": "dark-developer-portfolio-redesign",
+  "objective": "将 Webfrank 个人站全站重构为统一的默认深色开发者档案风格，并保留既有内容、数据、链接与本地化行为。",
+  "acceptanceCriteria": [
+    {
+      "id": "C1",
+      "description": "首页、项目页、404、页头和页尾使用统一深色开发者档案视觉体系。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C2",
+      "description": "按用户确认方向更新中英文文案和推荐项目，同时保持 GitHub 数据逻辑、路由与既有外部链接不变。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C3",
+      "description": "首页首屏清晰呈现身份、定位、主要行动入口与精选项目路径。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C4",
+      "description": "提供明显但性能安全的进入、滚动揭示和悬停动效，并完整支持 prefers-reduced-motion。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C5",
+      "description": "桌面、900px 与 375px 布局无横向溢出，导航和交互可由键盘操作且符合 WCAG AA 对比度目标。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C6",
+      "description": "项目 typecheck、test、lint、build、设计静态检查与 Chrome 渲染检查通过且无控制台错误。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C7",
+      "description": "全站交互控件、内容卡片和重点表面采用一致的10至18像素圆角，避免直硬视觉。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    },
+    {
+      "id": "C8",
+      "description": "采用用户确认的极简个人型文案与 Inter 加 Microsoft YaHei 字体组合，全站项目严格只保留 Codex Switch Helper、PolyHarness、QuickNav、Agent Skills 四项。",
+      "required": true,
+      "verification": {
+        "type": "manual"
+      }
+    }
+  ],
+  "constraints": [
+    "不新增依赖；沿用 React、TypeScript、现有 CSS 与 npm 工作流。",
+    "保留用户现有未提交文件，不提交、不推送、不部署。",
+    "仅新增主人于 2026-08-07 明确批准的 @playwright/test 开发依赖；其余依赖不得新增。"
+  ],
+  "nonGoals": [
+    "不新增页面、内容、主题切换、3D、重型视差或持续背景动画。"
+  ],
+  "requiredDeliverables": [
+    {
+      "id": "D1",
+      "path": "DESIGN.md"
+    },
+    {
+      "id": "D2",
+      "path": "src/styles.css"
+    }
+  ],
+  "risk": {
+    "level": "MEDIUM",
+    "reasons": [
+      "全站共享样式与明显动效可能造成响应式、可访问性或现有页面视觉回归。"
+    ]
+  },
+  "escalateWhen": [
+    "必须新增依赖、改变数据接口、删除用户文件或扩大到部署发布时。"
+  ],
+  "requiredApprovals": [
+    "创建 Goal Contract 后开始实现。"
+  ],
+  "createdAt": "2026-08-07T03:37:51.843230+00:00",
+  "revisions": [
+    {
+      "revisedAt": "2026-08-07T03:57:13.410848+00:00",
+      "addedConstraints": [
+        "仅新增主人于 2026-08-07 明确批准的 @playwright/test 开发依赖；其余依赖不得新增。"
+      ]
+    },
+    {
+      "revisedAt": "2026-08-07T04:07:42.951862+00:00",
+      "addedCriteria": [
+        {
+          "id": "C7",
+          "description": "全站交互控件、内容卡片和重点表面采用一致的10至18像素圆角，避免直硬视觉。",
+          "required": true,
+          "verification": {
+            "type": "manual"
+          }
+        },
+        {
+          "id": "C8",
+          "description": "采用用户确认的极简个人型文案与 Inter 加 Microsoft YaHei 字体组合，首页推荐项目严格为 Codex Switch Helper、PolyHarness、QuickNav、agent-skills。",
+          "required": true,
+          "verification": {
+            "type": "manual"
+          }
+        }
+      ]
+    },
+    {
+      "revisedAt": "2026-08-07T04:20:00+00:00",
+      "correctedCriteria": [
+        {
+          "id": "C8",
+          "description": "全站项目严格只保留 Codex Switch Helper、PolyHarness、QuickNav、agent-skills 四项，不仅限于首页精选。"
+        }
+      ]
+    },
+    {
+      "revisedAt": "2026-08-07T04:25:00+00:00",
+      "correctedCriteria": [
+        {
+          "id": "C8",
+          "description": "第四个项目展示名称由 agent-skills 更正为 Agent Skills，仓库标识仍为 agent-skills。"
+        }
+      ]
+    }
+  ]
+}

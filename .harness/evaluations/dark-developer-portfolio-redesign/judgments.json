@@ -1,0 +1,135 @@
+{
+  "goalId": "dark-developer-portfolio-redesign",
+  "criteria": {
+    "C1": {
+      "status": "ACHIEVED",
+      "reason": "共享深色设计令牌和组件样式覆盖首页、项目页、404、页头与页尾。",
+      "evidenceRefs": [
+        "artifact:src/styles.css",
+        "change:src/components/Header.tsx",
+        "change:src/components/Footer.tsx",
+        "change:src/pages/ProjectsPage.tsx",
+        "change:src/pages/NotFoundPage.tsx"
+      ]
+    },
+    "C2": {
+      "status": "UNPROVEN",
+      "reason": "当前实现包含双语、项目数据、GitHub 逻辑、路由与外链，但仓库没有可比较的已跟踪改版前基线。",
+      "evidenceRefs": [
+        "change:src/data/projects.ts",
+        "change:src/lib/github.ts",
+        "change:src/App.tsx",
+        "check:web.browser-tests"
+      ]
+    },
+    "C3": {
+      "status": "ACHIEVED",
+      "reason": "首页首屏明确展示身份、方向及项目和知识库入口。",
+      "evidenceRefs": [
+        "change:src/pages/HomePage.tsx",
+        "change:home-redesign-desktop.png",
+        "change:home-redesign-mobile.png"
+      ]
+    },
+    "C4": {
+      "status": "ACHIEVED",
+      "reason": "进入、滚动揭示、悬停反馈与 reduced-motion 行为均已实现并通过浏览器测试。",
+      "evidenceRefs": [
+        "change:src/App.tsx",
+        "artifact:src/styles.css",
+        "check:web.browser-tests"
+      ]
+    },
+    "C5": {
+      "status": "ACHIEVED",
+      "reason": "1440、900、375 三种视口覆盖三条路由、键盘焦点、菜单交互及核心 WCAG AA 对比度，15 项浏览器测试通过。",
+      "evidenceRefs": [
+        "check:web.browser-tests",
+        "change:tests/portfolio.spec.ts",
+        "artifact:src/styles.css"
+      ]
+    },
+    "C6": {
+      "status": "ACHIEVED",
+      "reason": "最终 check 已执行并通过 typecheck、10 项单测、lint、build、11 项 design-check 与 15 项 Chrome 浏览器测试。",
+      "evidenceRefs": [
+        "check:command.check.executed",
+        "check:web.browser-tests",
+        "change:scripts/design-check.mjs"
+      ]
+    },
+    "C7": {
+      "status": "ACHIEVED",
+      "reason": "全站交互控件、内容卡片和重点表面采用 10、14、18px 圆角令牌，并由设计静态检查验证关键控件覆盖。",
+      "evidenceRefs": [
+        "artifact:src/styles.css",
+        "change:scripts/design-check.mjs",
+        "check:command.check.executed"
+      ]
+    },
+    "C8": {
+      "status": "ACHIEVED",
+      "reason": "Inter 与 Microsoft YaHei 字体、极简第一人称文案均已实现；首页与项目页严格只展示四个指定项目，并在三种视口下通过数量和顺序验证。",
+      "evidenceRefs": [
+        "change:src/pages/HomePage.tsx",
+        "change:src/pages/ProjectsPage.tsx",
+        "change:src/data/projects.ts",
+        "change:tests/portfolio.spec.ts",
+        "artifact:src/styles.css",
+        "artifact:DESIGN.md",
+        "check:web.browser-tests"
+      ]
+    }
+  },
+  "constraints": {
+    "1": {
+      "status": "ACHIEVED",
+      "reason": "除用户明确批准的 @playwright/test 例外外未新增依赖。",
+      "evidenceRefs": [
+        "change:package.json",
+        "change:package-lock.json"
+      ]
+    },
+    "2": {
+      "status": "UNPROVEN",
+      "reason": "本地状态显示文件未提交，但 Evidence Bundle 无法严格证明没有外部推送或部署，也没有改版前未提交内容基线。",
+      "evidenceRefs": [
+        "change:.gitignore",
+        "change:src/styles.css"
+      ]
+    },
+    "3": {
+      "status": "ACHIEVED",
+      "reason": "新增依赖仅为用户批准的 @playwright/test。",
+      "evidenceRefs": [
+        "change:package.json",
+        "change:package-lock.json",
+        "change:playwright.config.ts"
+      ]
+    }
+  },
+  "checks": {
+    "web.support-boundary": {
+      "status": "ACHIEVED",
+      "reason": "DESIGN.md 记录响应式、可访问性、固定深色主题与视觉边界。",
+      "evidenceRefs": [
+        "artifact:DESIGN.md"
+      ]
+    },
+    "web.design-tokens": {
+      "status": "ACHIEVED",
+      "reason": "DESIGN.md 与 styles.css 定义颜色、字体、间距、形状和焦点状态。",
+      "evidenceRefs": [
+        "artifact:DESIGN.md",
+        "artifact:src/styles.css"
+      ]
+    },
+    "web.delivery": {
+      "status": "UNPROVEN",
+      "reason": "当前设计文档没有资产交付与回滚说明。",
+      "evidenceRefs": [
+        "artifact:DESIGN.md"
+      ]
+    }
+  }
+}

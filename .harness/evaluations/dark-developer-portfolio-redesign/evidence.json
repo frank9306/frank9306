@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "goalId": "dark-developer-portfolio-redesign",
+  "collectedAt": "2026-08-07T04:22:03.636580+00:00",
+  "root": ".",
+  "profiles": [],
+  "workspaceFingerprint": "0c033d1e6e1d00607d85c24c0290be7ef802dfdec420521e140bda26290eddd2",
+  "checks": [
+    {
+      "ruleId": "manifest.valid",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        ".harness/manifest.json"
+      ],
+      "message": "Manifest is valid",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.exists",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "AGENTS.md exists",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.size",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "AGENTS.md has 57 lines",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.markers",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "PolyHarness managed markers are valid",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.structure",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "Required AGENTS.md sections are present",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.version",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "Managed contract version is 1",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.commands",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "Manifest commands match AGENTS.md",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "agents.knowledge",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "message": "Manifest knowledge references match AGENTS.md",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "workspace.approval-boundaries",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Approval boundaries are not declared",
+      "repair": "Declare workspaces[].approvalBoundaries after project-owner review",
+      "severity": "recommended"
+    },
+    {
+      "ruleId": "web.support-boundary",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Document browser support, responsive breakpoints, accessibility, themes, and visual acceptance boundaries.",
+      "repair": "Document browser, responsive, accessibility, theme, and visual acceptance targets.",
+      "severity": "required"
+    },
+    {
+      "ruleId": "web.design-tokens",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Define a consistent styling system and design tokens for color, typography, spacing, radius, and focus states.",
+      "repair": "Define project-owned design tokens and focus treatment.",
+      "severity": "required"
+    },
+    {
+      "ruleId": "web.lockfile-owner",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "PRESENT",
+      "evidence": [
+        "package-lock.json"
+      ],
+      "message": "Use the package manager already selected by the project lockfile.",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "web.independent-typecheck",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "EXERCISED",
+      "evidence": [
+        "npm run typecheck",
+        {
+          "argv": "npm run typecheck",
+          "cwd": "E:\\private-store\\myproject\\webfrank\\personal-site",
+          "exitCode": 0,
+          "durationSeconds": 1.561,
+          "stdout": "\n> webfrank-personal-site@0.1.0 typecheck\n> tsc -b --pretty false\n\n"
+        }
+      ],
+      "message": "Run type checking independently from the production build.",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "web.browser-tests",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "EXERCISED",
+      "evidence": [
+        "tests/portfolio.spec.ts",
+        "npm run browser-test",
+        {
+          "argv": "npm run browser-test",
+          "cwd": "E:\\private-store\\myproject\\webfrank\\personal-site",
+          "exitCode": 0,
+          "durationSeconds": 11.453,
+          "stdout": "\n> webfrank-personal-site@0.1.0 browser-test\n> playwright test\n\n\nRunning 15 tests using 4 workers\n\n[1/15] [desktop-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[2/15] [desktop-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[3/15] [desktop-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[4/15] [desktop-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[5/15] [desktop-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n[6/15] [tablet-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[7/15] [tablet-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[8/15] [tablet-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[9/15] [tablet-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[10/15] [tablet-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n[11/15] [mobile-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[12/15] [mobile-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[13/15] [mobile-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[14/15] [mobile-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[15/15] [mobile-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n  15 passed (10.6s)\n"
+        }
+      ],
+      "message": "Provide a dedicated browser-test route and representative project-owned browser journey.",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "web.diagnostics",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Provide observable diagnostics for build, runtime, and API interaction failures.",
+      "repair": "Add attributable client and build diagnostics.",
+      "severity": "recommended"
+    },
+    {
+      "ruleId": "web.delivery",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Document delivery and rollback behavior for deployed assets.",
+      "repair": "Document asset delivery and rollback.",
+      "severity": "required"
+    },
+    {
+      "ruleId": "command.build",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "WIRED",
+      "evidence": [
+        "npm run build"
+      ],
+      "message": "build command is configured",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "command.check",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "WIRED",
+      "evidence": [
+        "npm run typecheck && npm run test && npm run lint && npm run build && npm run design-check && npm run browser-test"
+      ],
+      "message": "check command is configured",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "command.dev",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "WIRED",
+      "evidence": [
+        "npm run dev"
+      ],
+      "message": "dev command is configured",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "command.setup",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "WIRED",
+      "evidence": [
+        "npm ci"
+      ],
+      "message": "setup command is configured",
+      "repair": "",
+      "severity": "required"
+    },
+    {
+      "ruleId": "command.lint.executed",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "EXERCISED",
+      "evidence": [
+        {
+          "argv": "npm run lint",
+          "cwd": "E:\\private-store\\myproject\\webfrank\\personal-site",
+          "exitCode": 0,
+          "durationSeconds": 2.246,
+          "stdout": "\n> webfrank-personal-site@0.1.0 lint\n> eslint .\n\n"
+        }
+      ],
+      "message": "lint command completed successfully",
+      "repair": "",
+      "severity": "recommended"
+    },
+    {
+      "ruleId": "command.test.executed",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "EXERCISED",
+      "evidence": [
+        {
+          "argv": "npm run test",
+          "cwd": "E:\\private-store\\myproject\\webfrank\\personal-site",
+          "exitCode": 0,
+          "durationSeconds": 3.172,
+          "stdout": "\n> webfrank-personal-site@0.1.0 test\n> vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mE:/private-store/myproject/webfrank/personal-site\u001b[39m\n\n \u001b[32m✓\u001b[39m src/lib/locale.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/lib/github.test.ts \u001b[2m(\u001b[22m\u001b[2m4 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 8\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/App.test.tsx \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 122\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m10 passed\u001b[39m\u001b[22m\u001b[90m (10)\u001b[39m\n\u001b[2m   Start at \u001b[22m 12:21:39\n\u001b[2m   Duration \u001b[22m 2.29s\u001b[2m (transform 155ms, setup 744ms, collect 305ms, tests 132ms, environment 2.60s, prepare 321ms)\u001b[22m\n\n"
+        }
+      ],
+      "message": "test command completed successfully",
+      "repair": "",
+      "severity": "recommended"
+    },
+    {
+      "ruleId": "source.policy",
+      "workspace": "root",
+      "status": "WARNING",
+      "evidenceState": "UNOBSERVED",
+      "evidence": [],
+      "message": "Source structure policy is not declared",
+      "repair": "Declare workspaces[].sourcePolicy after reviewing the project architecture",
+      "severity": "recommended"
+    },
+    {
+      "ruleId": "command.check.executed",
+      "workspace": "root",
+      "status": "PASS",
+      "evidenceState": "EXERCISED",
+      "evidence": [
+        {
+          "argv": "npm run typecheck && npm run test && npm run lint && npm run build && npm run design-check && npm run browser-test",
+          "cwd": "E:\\private-store\\myproject\\webfrank\\personal-site",
+          "exitCode": 0,
+          "durationSeconds": 22.125,
+          "stdout": "\n> webfrank-personal-site@0.1.0 typecheck\n> tsc -b --pretty false\n\n\n> webfrank-personal-site@0.1.0 test\n> vitest run\n\n\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv3.2.7 \u001b[39m\u001b[90mE:/private-store/myproject/webfrank/personal-site\u001b[39m\n\n \u001b[32m✓\u001b[39m src/lib/locale.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 3\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/lib/github.test.ts \u001b[2m(\u001b[22m\u001b[2m4 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 7\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m src/App.test.tsx \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 121\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m10 passed\u001b[39m\u001b[22m\u001b[90m (10)\u001b[39m\n\u001b[2m   Start at \u001b[22m 12:21:43\n\u001b[2m   Duration \u001b[22m 2.27s\u001b[2m (transform 230ms, setup 737ms, collect 312ms, tests 131ms, environment 2.54s, prepare 306ms)\u001b[22m\n\n\n> webfrank-personal-site@0.1.0 lint\n> eslint .\n\n\n> webfrank-personal-site@0.1.0 build\n> tsc -b && vite build\n\n\u001b[36mvite v6.4.3 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m✓\u001b[39m 42 modules transformed.\nrendering chunks...\ncomputing gzip size...\n\u001b[2mdist/\u001b[22m\u001b[32mindex.html                 \u001b[39m\u001b[1m\u001b[2m  1.14 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m │ gzip:  0.54 kB\u001b[22m\n\u001b[2mdist/\u001b[22m\u001b[35massets/index-DDi9N_Jr.css  \u001b[39m\u001b[1m\u001b[2m 17.23 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m │ gzip:  4.43 kB\u001b[22m\n\u001b[2mdist/\u001b[22m\u001b[36massets/index-BvEa5RoG.js   \u001b[39m\u001b[1m\u001b[2m213.58 kB\u001b[22m\u001b[1m\u001b[22m\u001b[2m │ gzip: 68.32 kB\u001b[22m\n\u001b[32m✓ built in 716ms\u001b[39m\n\n> webfrank-personal-site@0.1.0 design-check\n> node scripts/design-check.mjs\n\nDesign check passed: 11 contract and implementation requirements verified.\n\n> webfrank-personal-site@0.1.0 browser-test\n> playwright test\n\n\nRunning 15 tests using 4 workers\n\n[1/15] [desktop-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[2/15] [desktop-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[3/15] [desktop-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[4/15] [desktop-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[5/15] [desktop-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n[6/15] [tablet-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[7/15] [tablet-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[8/15] [tablet-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[9/15] [tablet-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[10/15] [tablet-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n[11/15] [mobile-chrome] › tests\\portfolio.spec.ts:8:3 › portfolio browser journey › renders every route without horizontal overflow or console errors\n[12/15] [mobile-chrome] › tests\\portfolio.spec.ts:27:3 › portfolio browser journey › shows only the selected projects in order across project surfaces\n[13/15] [mobile-chrome] › tests\\portfolio.spec.ts:42:3 › portfolio browser journey › supports navigation and persistent language switching\n[14/15] [mobile-chrome] › tests\\portfolio.spec.ts:60:3 › portfolio browser journey › supports keyboard focus and core WCAG AA contrast\n[15/15] [mobile-chrome] › tests\\portfolio.spec.ts:90:3 › reduced motion › keeps reveal content visible\n  15 passed (11.3s)\n"
+        }
+      ],
+      "message": "Project check completed successfully",
+      "repair": "",
+      "severity": "required"
+    }
+  ],
+  "changes": [
+    {
+      "status": "??",
+      "path": ".gitignore"
+    },
+    {
+      "status": "??",
+      "path": ".harness/evaluations/dark-developer-portfolio-redesign/evidence.json"
+    },
+    {
+      "status": "??",
+      "path": ".harness/evaluations/dark-developer-portfolio-redesign/judgments.json"
+    },
+    {
+      "status": "??",
+      "path": ".harness/goals/dark-developer-portfolio-redesign.json"
+    },
+    {
+      "status": "??",
+      "path": ".harness/manifest.json"
+    },
+    {
+      "status": "??",
+      "path": "AGENTS.md"
+    },
+    {
+      "status": "??",
+      "path": "DESIGN.md"
+    },
+    {
+      "status": "??",
+      "path": "eslint.config.js"
+    },
+    {
+      "status": "??",
+      "path": "home-redesign-desktop.png"
+    },
+    {
+      "status": "??",
+      "path": "home-redesign-mobile.png"
+    },
+    {
+      "status": "??",
+      "path": "index.html"
+    },
+    {
+      "status": "??",
+      "path": "package-lock.json"
+    },
+    {
+      "status": "??",
+      "path": "package.json"
+    },
+    {
+      "status": "??",
+      "path": "playwright.config.ts"
+    },
+    {
+      "status": "??",
+      "path": "public/favicon.svg"
+    },
+    {
+      "status": "??",
+      "path": "public/robots.txt"
+    },
+    {
+      "status": "??",
+      "path": "public/sitemap.xml"
+    },
+    {
+      "status": "??",
+      "path": "public/social-card.svg"
+    },
+    {
+      "status": "??",
+      "path": "scripts/design-check.mjs"
+    },
+    {
+      "status": "??",
+      "path": "src/App.test.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/App.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/components/Footer.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/components/Header.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/components/Icon.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/components/Link.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/components/ProjectCard.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/context/LanguageContext.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/data/projects.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/hooks/useProjects.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/lib/github.test.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/lib/github.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/lib/locale.test.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/lib/locale.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/main.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/pages/HomePage.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/pages/NotFoundPage.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/pages/ProjectsPage.tsx"
+    },
+    {
+      "status": "??",
+      "path": "src/styles.css"
+    },
+    {
+      "status": "??",
+      "path": "src/test/setup.ts"
+    },
+    {
+      "status": "??",
+      "path": "src/types.ts"
+    },
+    {
+      "status": "??",
+      "path": "tests/portfolio.spec.ts"
+    },
+    {
+      "status": "??",
+      "path": "tsconfig.app.json"
+    },
+    {
+      "status": "??",
+      "path": "tsconfig.json"
+    },
+    {
+      "status": "??",
+      "path": "tsconfig.node.json"
+    },
+    {
+      "status": "??",
+      "path": "vite.config.ts"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "D1",
+      "path": "DESIGN.md",
+      "exists": true,
+      "size": 4647
+    },
+    {
+      "id": "D2",
+      "path": "src/styles.css",
+      "exists": true,
+      "size": 19609
+    }
+  ],
+  "references": [
+    "artifact:DESIGN.md",
+    "artifact:src/styles.css",
+    "change:.gitignore",
+    "change:.harness/evaluations/dark-developer-portfolio-redesign/evidence.json",
+    "change:.harness/evaluations/dark-developer-portfolio-redesign/judgments.json",
+    "change:.harness/goals/dark-developer-portfolio-redesign.json",
+    "change:.harness/manifest.json",
+    "change:AGENTS.md",
+    "change:DESIGN.md",
+    "change:eslint.config.js",
+    "change:home-redesign-desktop.png",
+    "change:home-redesign-mobile.png",
+    "change:index.html",
+    "change:package-lock.json",
+    "change:package.json",
+    "change:playwright.config.ts",
+    "change:public/favicon.svg",
+    "change:public/robots.txt",
+    "change:public/sitemap.xml",
+    "change:public/social-card.svg",
+    "change:scripts/design-check.mjs",
+    "change:src/App.test.tsx",
+    "change:src/App.tsx",
+    "change:src/components/Footer.tsx",
+    "change:src/components/Header.tsx",
+    "change:src/components/Icon.tsx",
+    "change:src/components/Link.tsx",
+    "change:src/components/ProjectCard.tsx",
+    "change:src/context/LanguageContext.tsx",
+    "change:src/data/projects.ts",
+    "change:src/hooks/useProjects.ts",
+    "change:src/lib/github.test.ts",
+    "change:src/lib/github.ts",
+    "change:src/lib/locale.test.ts",
+    "change:src/lib/locale.ts",
+    "change:src/main.tsx",
+    "change:src/pages/HomePage.tsx",
+    "change:src/pages/NotFoundPage.tsx",
+    "change:src/pages/ProjectsPage.tsx",
+    "change:src/styles.css",
+    "change:src/test/setup.ts",
+    "change:src/types.ts",
+    "change:tests/portfolio.spec.ts",
+    "change:tsconfig.app.json",
+    "change:tsconfig.json",
+    "change:tsconfig.node.json",
+    "change:vite.config.ts",
+    "check:agents.commands",
+    "check:agents.exists",
+    "check:agents.knowledge",
+    "check:agents.markers",
+    "check:agents.size",
+    "check:agents.structure",
+    "check:agents.version",
+    "check:command.build",
+    "check:command.check",
+    "check:command.check.executed",
+    "check:command.dev",
+    "check:command.lint.executed",
+    "check:command.setup",
+    "check:command.test.executed",
+    "check:manifest.valid",
+    "check:source.policy",
+    "check:web.browser-tests",
+    "check:web.delivery",
+    "check:web.design-tokens",
+    "check:web.diagnostics",
+    "check:web.independent-typecheck",
+    "check:web.lockfile-owner",
+    "check:web.support-boundary",
+    "check:workspace.approval-boundaries"
+  ],
+  "limitations": []
+}

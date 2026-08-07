@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "standard": "polyharness",
+  "standardVersion": "1.0.0",
+  "workspaces": [
+    {
+      "id": "root",
+      "path": ".",
+      "recipe": null,
+      "capabilities": [
+        {
+          "id": "web-ui",
+          "parameters": {
+            "packageManager": "npm",
+            "frontendFramework": "react",
+            "frontendLanguage": "typescript",
+            "buildTool": "vite",
+            "linter": "eslint",
+            "typeChecker": "tsc",
+            "unitTestRunner": "vitest"
+          }
+        }
+      ],
+      "commands": {
+        "setup": "npm ci",
+        "dev": "npm run dev",
+        "lint": "npm run lint",
+        "typecheck": "npm run typecheck",
+        "test": "npm run test",
+        "browser-test": "npm run browser-test",
+        "build": "npm run build",
+        "check": "npm run typecheck && npm run test && npm run lint && npm run build && npm run design-check && npm run browser-test"
+      },
+      "knowledge": {
+        "agentMap": "AGENTS.md",
+        "architecture": null,
+        "security": null,
+        "reliability": null
+      },
+      "evidencePolicy": {
+        "required": [
+          "command-results",
+          "changed-files",
+          "unverified-areas"
+        ]
+      },
+      "approvalBoundaries": []
+    }
+  ],
+  "exceptions": []
+}
