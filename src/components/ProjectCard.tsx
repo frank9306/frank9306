@@ -31,7 +31,7 @@ export function ProjectCard({ project, compact = false, loading = false }: { pro
           </>
         )}
       </div>
-      <a className="project-link" href={`https://github.com/frank9306/${project.repo}`} target="_blank" rel="noreferrer" aria-label={`${zh ? '在 GitHub 查看' : 'View on GitHub'} ${project.name}`}>
+      <a className="project-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`${zh ? '在 GitHub 查看' : 'View on GitHub'} ${project.name}`}>
         <span>{zh ? '查看仓库' : 'View repository'}</span><Icon name="arrow" />
       </a>
     </article>

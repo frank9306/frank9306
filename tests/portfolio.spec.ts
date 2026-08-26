@@ -1,10 +1,41 @@
 import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.route('https://api.github.com/**', (route) => route.fulfill({ json: [] }))
+  await page.route('https://api.github.com/**', (route) => route.fulfill({
+    status: 200,
+    contentType: 'application/json',
+    body: 'unavailable',
+  }))
 })
 
 test.describe('portfolio browser journey', () => {
+  test('shows four latest repositories and expands the projects page to ten', async ({ page }) => {
+    const repositories = Array.from({ length: 12 }, (_, index) => ({
+      name: `project-${String(index + 1).padStart(2, '0')}`,
+      description: `Project ${index + 1}`,
+      stargazers_count: index,
+      language: 'TypeScript',
+      updated_at: new Date(Date.UTC(2026, 7, 12 - index)).toISOString(),
+      topics: ['automation'],
+      fork: false,
+      archived: false,
+      html_url: `https://github.com/frank9306/project-${String(index + 1).padStart(2, '0')}`,
+    }))
+    await page.route('https://api.github.com/**', (route) => route.fulfill({ json: repositories }))
+
+    await page.goto('/')
+    await expect(page.locator('.project-card')).toHaveCount(4)
+    await expect(page.locator('.project-card h3')).toHaveText(['project-01', 'project-02', 'project-03', 'project-04'])
+
+    await page.goto('/projects')
+    await expect(page.locator('.project-card')).toHaveCount(4)
+    const more = page.getByRole('button', { name: /more|更多/i })
+    await expect(more).toBeVisible()
+    await more.click()
+    await expect(page.locator('.project-card')).toHaveCount(10)
+    await expect(more).toBeHidden()
+  })
+
   test('renders every route without horizontal overflow or console errors', async ({ page }) => {
     const errors: string[] = []
     page.on('console', (message) => {
@@ -24,8 +55,8 @@ test.describe('portfolio browser journey', () => {
     expect(errors).toEqual([])
   })
 
-  test('shows only the selected projects in order across project surfaces', async ({ page }) => {
-    const selectedProjects = [
+  test('shows the curated fallback projects when GitHub is unavailable', async ({ page }) => {
+    const fallbackProjects = [
       'Codex Switch Helper',
       'PolyHarness',
       'QuickNav',
@@ -34,7 +65,7 @@ test.describe('portfolio browser journey', () => {
 
     for (const path of ['/', '/projects']) {
       await page.goto(path)
-      await expect(page.locator('.project-card h3')).toHaveText(selectedProjects)
+      await expect(page.locator('.project-card h3')).toHaveText(fallbackProjects)
       await expect(page.locator('.project-card')).toHaveCount(4)
     }
   })

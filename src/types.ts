@@ -28,6 +28,7 @@ export interface Project extends ProjectDefinition {
   stars: number
   language: string
   updatedAt: string
+  url: string
 }
 
 export interface ProjectDataResult {

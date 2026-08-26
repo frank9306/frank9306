@@ -59,7 +59,7 @@ export function HomePage() {
           <SiteLink href="/projects" className="text-link">{zh ? '查看全部项目' : 'View all projects'} <Icon name="arrow" /></SiteLink>
         </div>
         <div className="project-grid featured-grid">
-          {projects.map((project) => <ProjectCard key={project.slug} project={project} compact loading={loading} />)}
+          {projects.slice(0, 4).map((project) => <ProjectCard key={project.slug} project={project} compact loading={loading} />)}
         </div>
       </section>
 

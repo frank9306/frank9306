@@ -141,6 +141,7 @@ button { font: inherit; }
 .data-notice { margin: 24px 0 0; padding: 12px 16px; color: var(--muted); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); background: var(--surface); font-size: 12px; }
 .projects-grid { margin-top: 50px; }
 .projects-grid .project-card { grid-template-columns: 160px minmax(0, 1.25fr) minmax(220px, .65fr) 150px; }
+.projects-more { margin-top: 30px; display: flex; justify-content: center; }
 .projects-footnote { margin-top: 30px; padding-top: 18px; display: grid; grid-template-columns: 22% 1fr; color: var(--faint); border-top: 1px solid var(--line); font: 9px/1.7 var(--mono); }
 .projects-footnote p { margin: 0; }
 

@@ -3,7 +3,11 @@ import { projects as definitions } from '../data/projects'
 import { loadProjects } from '../lib/github'
 import type { Project, ProjectDataResult } from '../types'
 
-const fallbackProjects: Project[] = definitions.map((project) => ({ ...project, ...project.fallback }))
+const fallbackProjects: Project[] = definitions.map((project) => ({
+  ...project,
+  ...project.fallback,
+  url: `https://github.com/frank9306/${project.repo}`,
+}))
 
 let sharedRequest: Promise<ProjectDataResult> | null = null
 
