@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://api.github.com/**', (route) => route.fulfill({
@@ -9,6 +10,32 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('portfolio browser journey', () => {
+  test('restores a direct GitHub Pages entry to the projects route', async ({ page }) => {
+    const pagesFallback = await readFile(new URL('../public/404.html', import.meta.url), 'utf8')
+    await page.route('**/projects', (route) => route.fulfill({
+      status: 404,
+      contentType: 'text/html',
+      body: pagesFallback,
+    }))
+
+    await page.goto('/projects')
+    await expect(page).toHaveURL(/\/projects$/)
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/项目与实验|Projects & experiments/)
+  })
+
+  test('restores an unknown GitHub Pages entry to the site not-found route', async ({ page }) => {
+    const pagesFallback = await readFile(new URL('../public/404.html', import.meta.url), 'utf8')
+    await page.route('**/missing-direct', (route) => route.fulfill({
+      status: 404,
+      contentType: 'text/html',
+      body: pagesFallback,
+    }))
+
+    await page.goto('/missing-direct')
+    await expect(page).toHaveURL(/\/missing-direct$/)
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/这条路径还没有内容|Nothing has been built on this path/)
+  })
+
   test('shows four latest repositories and expands the projects page to ten', async ({ page }) => {
     const repositories = Array.from({ length: 12 }, (_, index) => ({
       name: `project-${String(index + 1).padStart(2, '0')}`,
