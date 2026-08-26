@@ -20,9 +20,10 @@ describe('App routing and localization', () => {
 
   it('renders the home page and switches language persistently', () => {
     renderApp()
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('你好，我是 Frank')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Frank — AI Agent 与自动化工具开发者')
+    expect(screen.getByRole('link', { name: '在 GitHub 查看 Frank' })).toHaveAttribute('href', 'https://github.com/frank9306')
     fireEvent.click(screen.getByRole('button', { name: 'Switch to English' }))
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Hi, I’m Frank')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Frank — AI agent and automation tools developer')
     expect(localStorage.getItem('webfrank-locale')).toBe('en')
   })
 

@@ -13,19 +13,17 @@ export function Header({ path }: { path: string }) {
     <header className="site-header">
       <div className="header-inner">
         <SiteLink href="/" className="brand" aria-label={zh ? 'Frank 首页' : 'Frank home'}>
-          <span className="brand-mark">F.</span>
-          <span className="brand-text">webfrank<span>.top</span></span>
+          FRANK
         </SiteLink>
         <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="primary-navigation" aria-label={zh ? (open ? '关闭菜单' : '打开菜单') : (open ? 'Close menu' : 'Open menu')}>
           <Icon name={open ? 'close' : 'menu'} size={22} />
         </button>
         <nav id="primary-navigation" className={`primary-nav ${open ? 'is-open' : ''}`} aria-label={zh ? '主导航' : 'Primary navigation'}>
-          <SiteLink href="/" className={path === '/' ? 'active' : ''} onNavigate={() => setOpen(false)}>{zh ? '首页' : 'Home'}</SiteLink>
           <SiteLink href="/projects" className={path === '/projects' ? 'active' : ''} onNavigate={() => setOpen(false)}>{zh ? '项目' : 'Projects'}</SiteLink>
-          <a href={profileLinks.knowledge} target="_blank" rel="noreferrer">{zh ? '知识库' : 'Knowledge'} <span aria-hidden="true">↗</span></a>
-          <a href={profileLinks.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href={profileLinks.knowledge} target="_blank" rel="noreferrer">{zh ? '文章' : 'Writing'}</a>
+          <a href="/#about" onClick={() => setOpen(false)}>{zh ? '关于' : 'About'}</a>
           <button className="locale-button" type="button" onClick={toggleLocale} aria-label={zh ? 'Switch to English' : '切换到简体中文'}>
-            <span className={zh ? 'selected' : ''}>中</span><span aria-hidden="true">/</span><span className={!zh ? 'selected' : ''}>EN</span>
+            {zh ? 'EN' : '中'}
           </button>
         </nav>
       </div>

@@ -8,9 +8,8 @@ export function Footer() {
   return (
     <footer className="site-footer" data-reveal>
       <div className="footer-lead">
-        <span className="section-kicker">04 / {zh ? '保持联系' : 'STAY IN TOUCH'}</span>
-        <h2>{zh ? '想聊项目，或者只是交换想法？' : 'Want to talk projects—or just trade ideas?'}</h2>
-        <p>{zh ? '都欢迎联系。' : 'Either way, say hello.'}</p>
+        <span className="section-kicker">{zh ? '保持联系' : 'Stay in touch'}</span>
+        <h2>{zh ? '有值得解决的问题？聊聊。' : 'A problem worth solving? Let’s talk.'}</h2>
       </div>
       <div className="footer-links">
         <a href={profileLinks.email}><Icon name="mail" /> Email <Icon name="arrow" /></a>
@@ -24,7 +23,7 @@ export function Footer() {
           <a href={profileLinks.email}>Email</a>
           <a href={profileLinks.telegram} target="_blank" rel="noreferrer">Telegram</a>
         </div>
-        <span>{zh ? '北京 · 在线' : 'Beijing · Online'}</span>
+        <span>{zh ? '北京 · UTC+8' : 'Beijing · UTC+8'}</span>
       </div>
     </footer>
   )

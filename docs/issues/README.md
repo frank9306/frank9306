@@ -25,6 +25,7 @@ None.
 | [ISSUE-0001](ISSUE-0001-sort-github-projects-by-update-time-and-expand-to-ten.md) | Sort GitHub projects by update time and expand to ten |
 | [ISSUE-0002](ISSUE-0002-exclude-knowledge-base-and-profile-repositories.md) | Exclude knowledge base and profile repositories |
 | [ISSUE-0003](ISSUE-0003-support-direct-access-to-client-side-routes-on-github-pages.md) | Support direct access to client-side routes on GitHub Pages |
+| [ISSUE-0004](ISSUE-0004-redesign-homepage-as-a-minimal-dark-technical-leader-profile.md) | Redesign homepage as a minimal dark technical-leader profile |
 
 ## Cancelled
 

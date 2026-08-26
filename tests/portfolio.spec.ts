@@ -110,9 +110,9 @@ test.describe('portfolio browser journey', () => {
     }
 
     await page.getByRole('button', { name: 'Switch to English' }).click()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Hi, I’m Frank')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Frank — AI agent and automation tools developer')
     await page.reload()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Hi, I’m Frank')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Frank — AI agent and automation tools developer')
   })
 
   test('supports keyboard focus and core WCAG AA contrast', async ({ page }, testInfo) => {
@@ -138,9 +138,9 @@ test.describe('portfolio browser journey', () => {
       return (values[0] + .05) / (values[1] + .05)
     }
 
-    expect(contrast('#e6f0f5', '#07111b')).toBeGreaterThanOrEqual(4.5)
-    expect(contrast('#8da0ae', '#07111b')).toBeGreaterThanOrEqual(4.5)
-    expect(contrast('#62e6bd', '#07111b')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#f2f1ed', '#111214')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#a3a4a8', '#111214')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#6f91ff', '#111214')).toBeGreaterThanOrEqual(4.5)
   })
 })
 

@@ -12,11 +12,11 @@ const requirements = [
   ['mobile breakpoint', styles.includes('@media (max-width: 640px)')],
   ['tablet breakpoint', styles.includes('@media (max-width: 900px)')],
   ['reduced motion fallback', styles.includes('@media (prefers-reduced-motion: reduce)')],
-  ['rounded surface tokens', /--radius-sm:\s*10px;[\s\S]*--radius-md:\s*14px;[\s\S]*--radius-lg:\s*18px;/.test(styles)],
+  ['restrained surface tokens', /--radius-sm:\s*4px;[\s\S]*--radius-md:\s*6px;/.test(styles)],
   ['approved font stack', styles.includes("'Inter', 'Microsoft YaHei'")],
   ['skip link radius', /\.skip-link\s*\{[^}]*border-radius:\s*var\(--radius-sm\)/s.test(styles)],
-  ['menu button radius', /\.menu-button\s*\{[^}]*border-radius:\s*var\(--radius-sm\)/s.test(styles)],
-  ['knowledge link radius', /\.circle-link\s*\{[^}]*border-radius:\s*var\(--radius-lg\)/s.test(styles)],
+  ['mobile menu target', /\.menu-button\s*\{[^}]*min-width:\s*44px;[^}]*min-height:\s*44px;/s.test(styles)],
+  ['horizontal project evidence', /\.featured-grid \.project-card\s*\{[^}]*grid-template-columns:/s.test(styles)],
 ]
 
 const failures = requirements.filter(([, passed]) => !passed)

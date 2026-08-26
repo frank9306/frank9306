@@ -3,29 +3,29 @@ version: 1.0
 name: Webfrank Developer Profile
 tokens:
   colors:
-    canvas: "#07111b"
-    surface: "#0a1723"
-    ink: "#e6f0f5"
-    accent: "#62e6bd"
+    canvas: "#111214"
+    surface: "#181a1d"
+    ink: "#f2f1ed"
+    accent: "#6f91ff"
   typography:
     display: "Inter + Microsoft YaHei"
     body: "Inter + Microsoft YaHei"
     utility: "Inter + Microsoft YaHei"
   spacing: "8px base rhythm"
   radii: "10px controls, 14px cards, 18px feature surfaces"
-  elevation: "Borders and offset layers, not soft shadows"
-  motion: "160–500ms, causal and reduced-motion safe"
+  elevation: "Hairline borders and tonal shifts, no decorative shadows"
+  motion: "140–240ms, restrained, causal, and reduced-motion safe"
 ---
 
 # Webfrank Developer Profile
 
 ## Overview
 
-Webfrank is Frank's bilingual personal site for developers, collaborators, and readers interested in AI agents, developer tools, automation, and reusable knowledge. Its visual thesis is a dark developer profile: deep blue-black space, clear archival hierarchy, restrained technical metadata, and mint signals for active paths. The recognizable quality is its calm project-index rhythm paired with deliberate motion.
+Webfrank is Frank's bilingual personal site for developers, collaborators, and readers interested in AI agents, developer tools, automation, and reusable knowledge. The provisional preview direction is a minimal dark technical-leader profile: charcoal space, disciplined warm-white typography, one quiet blue signal, and strong evidence presented before decoration. The site should feel simple and professional while allowing visitors to conclude that Frank is exceptionally capable from the work itself.
 
 ## Colors
 
-Deep blue-black is the permanent canvas; raised surfaces use only a subtle lighter step. Cool white is primary text, muted blue-gray supports descriptions, and mint is reserved for actions, live status, focus, and short metadata. Body-sized text must retain WCAG AA contrast.
+Charcoal is the primary canvas, slightly lighter graphite is used sparingly for contained surfaces, and warm white carries the hierarchy. Muted blue is reserved for links, focus, and one primary action. Body-sized text must retain WCAG AA contrast.
 
 ## Typography
 
@@ -33,11 +33,11 @@ Inter carries Latin text and Microsoft YaHei carries Chinese text for a softer, 
 
 ## Layout
 
-The main shell is at most 1120px with 32px desktop and 14px mobile page gutters. Sections use thin rules, asymmetrical grids, and an 8px spacing rhythm. The first viewport must identify Frank, his focus, and the path to projects.
+The main shell is at most 1120px with 32px desktop and 14px mobile page gutters. Sections use thin rules, an editorial two-column grid, and an 8px spacing rhythm. The first viewport must identify Frank, his focus, and credible proof through selected work or outcomes.
 
 ## Elevation & Depth
 
-Hierarchy comes from canvas steps, one-pixel rules, and selective background shifts. Blur is limited to the sticky navigation; avoid floating cards and decorative gradients.
+Hierarchy comes from typography, whitespace, one-pixel rules, and selective background shifts. Avoid floating cards, glass effects, decorative gradients, and ornamental depth.
 
 ## Shapes
 
@@ -53,7 +53,7 @@ Primary navigation is immediate and keyboard accessible. External destinations a
 
 ## Motion
 
-Motion is deliberately visible through staged hero entry, scroll reveal, project focus, and directional hover feedback. Animate only transform and opacity where possible, and fully neutralize motion under `prefers-reduced-motion`.
+Motion is quiet and local: link feedback, project preview continuity, and restrained section entry. Animate only transform and opacity where possible, and fully neutralize motion under `prefers-reduced-motion`.
 
 ## Responsive Behavior
 
@@ -77,7 +77,7 @@ No chart system is currently used. Any future chart must include a textual alter
 
 ## Do's and Don'ts
 
-- Do use archival hierarchy, technical metadata, real project content, and meaningful structural rules.
-- Do keep one bold visual move per section and make projects visible early.
-- Don't use generic gradient hero blobs, excessive rounded cards, glassmorphism, serif editorial styling, or decorative badges.
+- Do lead with concrete outcomes, maintained projects, technical judgment, and meaningful structural rules.
+- Do make selected work visible in or immediately after the first viewport.
+- Don't use generic developer status widgets, coordinates, excessive technology pills, gradient hero blobs, rounded-card grids, glassmorphism, or decorative badges.
 - Don't trade Chinese readability for oversized typography or force desktop compositions onto mobile.
