@@ -20,7 +20,7 @@ test.describe('portfolio browser journey', () => {
 
     await page.goto('/projects')
     await expect(page).toHaveURL(/\/projects$/)
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/项目与实验|Projects & experiments/)
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/项目|Projects/)
   })
 
   test('restores an unknown GitHub Pages entry to the site not-found route', async ({ page }) => {
@@ -33,7 +33,7 @@ test.describe('portfolio browser journey', () => {
 
     await page.goto('/missing-direct')
     await expect(page).toHaveURL(/\/missing-direct$/)
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/这条路径还没有内容|Nothing has been built on this path/)
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/这个页面不存在|This page doesn't exist/)
   })
 
   test('shows four latest repositories and expands the projects page to ten', async ({ page }) => {
@@ -82,6 +82,21 @@ test.describe('portfolio browser journey', () => {
     expect(errors).toEqual([])
   })
 
+  test('keeps below-the-fold homepage content visible without scrolling', async ({ page }) => {
+    await page.goto('/')
+
+    await expect(page.locator('.about-section')).toHaveCSS('opacity', '1')
+    await expect(page.locator('.site-footer')).toHaveCSS('opacity', '1')
+  })
+
+  test('shows a full-row focus treatment for project destinations', async ({ page }) => {
+    await page.goto('/')
+
+    const firstProject = page.locator('.project-card').first()
+    await firstProject.locator('.project-link').focus()
+    await expect(firstProject).toHaveCSS('outline-color', 'rgb(189, 63, 31)')
+  })
+
   test('shows the curated fallback projects when GitHub is unavailable', async ({ page }) => {
     const fallbackProjects = [
       'Codex Switch Helper',
@@ -110,9 +125,9 @@ test.describe('portfolio browser journey', () => {
     }
 
     await page.getByRole('button', { name: 'Switch to English' }).click()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Frank — AI agent and automation tools developer')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('I turn repeated work into reusable tools.')
     await page.reload()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Frank — AI agent and automation tools developer')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('I turn repeated work into reusable tools.')
   })
 
   test('supports keyboard focus and core WCAG AA contrast', async ({ page }, testInfo) => {
@@ -138,14 +153,14 @@ test.describe('portfolio browser journey', () => {
       return (values[0] + .05) / (values[1] + .05)
     }
 
-    expect(contrast('#f2f1ed', '#111214')).toBeGreaterThanOrEqual(4.5)
-    expect(contrast('#a3a4a8', '#111214')).toBeGreaterThanOrEqual(4.5)
-    expect(contrast('#6f91ff', '#111214')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#191918', '#f1efe8')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#56554f', '#f1efe8')).toBeGreaterThanOrEqual(4.5)
+    expect(contrast('#bd3f1f', '#f1efe8')).toBeGreaterThanOrEqual(4.5)
   })
 })
 
 test.describe('reduced motion', () => {
-  test('keeps reveal content visible', async ({ page }) => {
+  test('keeps homepage content visible', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto('/')
     await expect(page.locator('.about-section')).toHaveCSS('opacity', '1')

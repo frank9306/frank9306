@@ -1,22 +1,36 @@
-import { readFile } from 'node:fs/promises'
+import { access, readFile } from 'node:fs/promises'
 
-const [contract, styles] = await Promise.all([
+const [contract, styles, home, footer] = await Promise.all([
   readFile(new URL('../DESIGN.md', import.meta.url), 'utf8'),
   readFile(new URL('../src/styles.css', import.meta.url), 'utf8'),
+  readFile(new URL('../src/pages/HomePage.tsx', import.meta.url), 'utf8'),
+  readFile(new URL('../src/components/Footer.tsx', import.meta.url), 'utf8'),
+])
+
+const visibleCopy = `${home}\n${footer}`
+const assetChecks = await Promise.all([
+  access(new URL('../public/images/agent-workbench-hero.webp', import.meta.url)).then(() => true, () => false),
+  access(new URL('../public/images/workflow-modules.webp', import.meta.url)).then(() => true, () => false),
+  access(new URL('../public/fonts/Manrope-Latin.woff2', import.meta.url)).then(() => true, () => false),
 ])
 
 const requirements = [
-  ['design contract', contract.includes('# Webfrank Developer Profile')],
+  ['design contract', contract.includes('# Webfrank Systems Workbench')],
+  ['explicit Taste Skill dials', contract.includes('DESIGN_VARIANCE 8, MOTION_INTENSITY 5, and VISUAL_DENSITY 4')],
   ['semantic color tokens', /--canvas:|--surface:|--ink:|--accent:/.test(styles)],
-  ['visible focus treatment', styles.includes(':focus-visible')],
-  ['mobile breakpoint', styles.includes('@media (max-width: 640px)')],
-  ['tablet breakpoint', styles.includes('@media (max-width: 900px)')],
+  ['light and dark theme tokens', styles.includes('@media (prefers-color-scheme: dark)')],
+  ['self-hosted variable font', styles.includes("url('/fonts/Manrope-Latin.woff2')") && !styles.includes('fonts.googleapis.com')],
+  ['project-owned imagery', assetChecks.every(Boolean) && home.includes('/images/agent-workbench-hero.webp') && home.includes('/images/workflow-modules.webp')],
+  ['visible focus treatment', styles.includes(':focus-visible') && styles.includes(':focus-within')],
+  ['mobile breakpoint', styles.includes('@media (max-width: 767px)')],
+  ['tablet breakpoint', styles.includes('@media (max-width: 980px)')],
   ['reduced motion fallback', styles.includes('@media (prefers-reduced-motion: reduce)')],
-  ['restrained surface tokens', /--radius-sm:\s*4px;[\s\S]*--radius-md:\s*6px;/.test(styles)],
-  ['approved font stack', styles.includes("'Inter', 'Microsoft YaHei'")],
-  ['skip link radius', /\.skip-link\s*\{[^}]*border-radius:\s*var\(--radius-sm\)/s.test(styles)],
-  ['mobile menu target', /\.menu-button\s*\{[^}]*min-width:\s*44px;[^}]*min-height:\s*44px;/s.test(styles)],
-  ['horizontal project evidence', /\.featured-grid \.project-card\s*\{[^}]*grid-template-columns:/s.test(styles)],
+  ['dynamic viewport hero', styles.includes('100dvh')],
+  ['asymmetric hero grid', /\.hero-grid\s*\{[^}]*repeat\(12/s.test(styles)],
+  ['asymmetric project matrix', /\.project-card:nth-child\(4n \+ 1\)[\s\S]*grid-column:\s*span 7/s.test(styles)],
+  ['sharp shape system', !styles.includes('border-radius')],
+  ['no transition all', !/transition:\s*all\b/.test(styles)],
+  ['no visible em dash', !/[—–]/.test(visibleCopy)],
 ]
 
 const failures = requirements.filter(([, passed]) => !passed)

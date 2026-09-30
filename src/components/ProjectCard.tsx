@@ -1,6 +1,5 @@
 import { useLanguage } from '../context/LanguageContext'
 import type { Project } from '../types'
-import { Icon } from './Icon'
 
 export function ProjectCard({ project, compact = false, loading = false }: { project: Project; compact?: boolean; loading?: boolean }) {
   const { locale } = useLanguage()
@@ -10,7 +9,6 @@ export function ProjectCard({ project, compact = false, loading = false }: { pro
   return (
     <article className={`project-card ${compact ? 'compact' : ''}`}>
       <div className="project-card-top">
-        <span className="project-index">{project.index}</span>
         <span className="project-role">{project.role[locale]}</span>
       </div>
       <div className="project-card-body">
@@ -25,14 +23,14 @@ export function ProjectCard({ project, compact = false, loading = false }: { pro
           <><span className="skeleton short" /><span className="skeleton" /></>
         ) : (
           <>
-            <span><Icon name="star" size={15} /> {project.stars}</span>
-            <span><i className="language-dot" /> {project.language}</span>
+            <span>{project.stars} Stars</span>
+            <span>{project.language}</span>
             <span>{zh ? '更新于' : 'Updated'} {date}</span>
           </>
         )}
       </div>
       <a className="project-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`${zh ? '在 GitHub 查看' : 'View on GitHub'} ${project.name}`}>
-        <span>{zh ? '查看仓库' : 'View repository'}</span><Icon name="arrow" />
+        <span>{zh ? '查看仓库' : 'View repository'}</span><b aria-hidden="true">↗</b>
       </a>
     </article>
   )

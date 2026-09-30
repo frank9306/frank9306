@@ -24,42 +24,16 @@ export function App() {
     const isProjects = path === '/projects'
     const isNotFound = path !== '/' && !isProjects
     const title = locale === 'zh'
-      ? isNotFound ? '页面未找到 — Frank' : isProjects ? '项目 — Frank 的个人数字空间' : 'Frank 的个人数字空间'
-      : isNotFound ? 'Page not found — Frank' : isProjects ? 'Projects — Frank · Developer & Builder' : 'Frank — Developer & Builder'
+      ? isNotFound ? '页面不存在 | Frank' : isProjects ? '项目 | Frank' : 'Frank | AI Agent、Codex 工具与自动化'
+      : isNotFound ? 'Page not found | Frank' : isProjects ? 'Projects | Frank' : 'Frank | AI agents, Codex tools, and automation'
     const description = locale === 'zh'
-      ? 'Frank 的个人数字空间，关注 AI Agent、开发者工具与自动化实践。'
-      : 'Frank’s personal space for AI agents, developer tools, automation, and knowledge systems.'
+      ? 'Frank 的个人网站，记录 AI Agent、Codex 工具、自动化项目和实践笔记。'
+      : "Frank's site for AI agents, Codex tools, automation projects, and working notes."
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://webfrank.top${isNotFound ? '/' : path}`)
-  }, [locale, path])
-
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
-    const reducedMotion = typeof window.matchMedia === 'function'
-      && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reducedMotion || typeof IntersectionObserver === 'undefined') {
-      elements.forEach((element) => element.dataset.visible = 'true')
-      return
-    }
-
-    document.documentElement.classList.add('reveal-ready')
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          ;(entry.target as HTMLElement).dataset.visible = 'true'
-          observer.unobserve(entry.target)
-        }
-      })
-    }, { threshold: 0.04, rootMargin: '0px 0px -8% 0px' })
-
-    elements.forEach((element) => observer.observe(element))
-    return () => {
-      observer.disconnect()
-      document.documentElement.classList.remove('reveal-ready')
-    }
   }, [locale, path])
 
   const page = path === '/' ? <HomePage /> : path === '/projects' ? <ProjectsPage /> : <NotFoundPage />

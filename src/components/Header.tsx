@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { profileLinks } from '../data/projects'
 import { useLanguage } from '../context/LanguageContext'
-import { Icon } from './Icon'
 import { SiteLink } from './Link'
 
 export function Header({ path }: { path: string }) {
@@ -16,7 +15,7 @@ export function Header({ path }: { path: string }) {
           FRANK
         </SiteLink>
         <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="primary-navigation" aria-label={zh ? (open ? '关闭菜单' : '打开菜单') : (open ? 'Close menu' : 'Open menu')}>
-          <Icon name={open ? 'close' : 'menu'} size={22} />
+          <span className={`menu-glyph ${open ? 'is-open' : ''}`} aria-hidden="true"><i /><i /></span>
         </button>
         <nav id="primary-navigation" className={`primary-nav ${open ? 'is-open' : ''}`} aria-label={zh ? '主导航' : 'Primary navigation'}>
           <SiteLink href="/projects" className={path === '/projects' ? 'active' : ''} onNavigate={() => setOpen(false)}>{zh ? '项目' : 'Projects'}</SiteLink>

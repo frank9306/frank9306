@@ -21,7 +21,7 @@ export const projects: ProjectDefinition[] = [
     name: 'PolyHarness',
     description: {
       zh: '给 Agent 的工程结果配上目标、检查和证据。',
-      en: 'Give agent-driven engineering explicit goals, checks, and evidence.',
+      en: 'Attach goals, checks, and evidence to agent-generated engineering work.',
     },
     role: { zh: '工程基础设施', en: 'Engineering infrastructure' },
     tags: ['Python', 'Agents', 'Verification'],
@@ -33,8 +33,8 @@ export const projects: ProjectDefinition[] = [
     index: '03',
     name: 'QuickNav',
     description: {
-      zh: '一个安静、顺手的新标签页，把常用网站放在眼前。',
-      en: 'A quiet, practical new tab that keeps everyday sites close at hand.',
+      zh: '把常用网站收进一个新标签页，打开浏览器就能直接访问。',
+      en: 'Put frequently used sites on one new-tab page so they are there when the browser opens.',
     },
     role: { zh: '浏览器扩展', en: 'Browser extension' },
     tags: ['TypeScript', 'Extension', 'Productivity'],
@@ -47,7 +47,7 @@ export const projects: ProjectDefinition[] = [
     name: 'Agent Skills',
     description: {
       zh: '把反复使用的方法做成可以安装、复用和验证的 Agent Skills。',
-      en: 'Reusable, installable Agent Skills built from workflows worth repeating.',
+      en: 'Turn repeated workflows into Agent Skills that can be installed, reused, and checked.',
     },
     role: { zh: '技能集合', en: 'Skill collection' },
     tags: ['Agents', 'Skills', 'Workflow'],

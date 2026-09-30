@@ -1,83 +1,93 @@
 ---
-version: 1.0
-name: Webfrank Developer Profile
+version: 2.0
+name: Webfrank Systems Workbench
 tokens:
   colors:
-    canvas: "#111214"
-    surface: "#181a1d"
-    ink: "#f2f1ed"
-    accent: "#6f91ff"
+    canvas-light: "#f1efe8"
+    canvas-dark: "#171716"
+    ink-light: "#191918"
+    ink-dark: "#f2efe7"
+    accent-light: "#bd3f1f"
+    accent-dark: "#ff6847"
   typography:
-    display: "Inter + Microsoft YaHei"
-    body: "Inter + Microsoft YaHei"
-    utility: "Inter + Microsoft YaHei"
-  spacing: "8px base rhythm"
-  radii: "10px controls, 14px cards, 18px feature surfaces"
-  elevation: "Hairline borders and tonal shifts, no decorative shadows"
-  motion: "140–240ms, restrained, causal, and reduced-motion safe"
+    display: "Self-hosted Manrope + Microsoft YaHei"
+    body: "Self-hosted Manrope + Microsoft YaHei"
+    utility: "Self-hosted Manrope + Microsoft YaHei"
+  spacing: "7px base rhythm with optical section spacing"
+  radii: "Sharp rectangular geometry throughout"
+  elevation: "Solid tonal blocks and overlap, no decorative shadows"
+  motion: "140-760ms, hierarchy and feedback only, reduced-motion safe"
 ---
 
-# Webfrank Developer Profile
+# Webfrank Systems Workbench
 
 ## Overview
 
-Webfrank is Frank's bilingual personal site for developers, collaborators, and readers interested in AI agents, developer tools, automation, and reusable knowledge. The provisional preview direction is a minimal dark technical-leader profile: charcoal space, disciplined warm-white typography, one quiet blue signal, and strong evidence presented before decoration. The site should feel simple and professional while allowing visitors to conclude that Frank is exceptionally capable from the work itself.
+Webfrank is Frank's bilingual portfolio for developers and collaborators interested in AI agents, developer tools, verification, and automation. The site is treated as a redesign overhaul: routes, real project facts, destinations, and localization remain stable while the visual language and page composition are rebuilt.
+
+The visual thesis is an editorial systems workbench. Cold paper, graphite, metal, translucent routing sheets, and a single vermilion signal make abstract software work feel tangible. Original generated photography is a content asset, not decoration. The interface should feel like evidence from a working practice rather than a résumé template.
+
+Taste Skill dials are DESIGN_VARIANCE 8, MOTION_INTENSITY 5, and VISUAL_DENSITY 4.
 
 ## Colors
 
-Charcoal is the primary canvas, slightly lighter graphite is used sparingly for contained surfaces, and warm white carries the hierarchy. Muted blue is reserved for links, focus, and one primary action. Body-sized text must retain WCAG AA contrast.
+Light mode uses cold paper `#f1efe8`, graphite `#191918`, and vermilion `#bd3f1f`. Dark mode uses charcoal `#171716`, warm white `#f2efe7`, and brighter vermilion `#ff6847`. The browser's color preference selects the mode. Vermilion is the only accent family and is used for actions, focus, selected states, and the final contact block.
+
+Do not introduce blue, purple, neon, or gradient accents. Contained graphite blocks may invert type, but whole sections do not switch to a second theme.
 
 ## Typography
 
-Inter carries Latin text and Microsoft YaHei carries Chinese text for a softer, familiar developer profile. Metadata uses the same family at smaller sizes and increased tracking instead of a separate monospace face. Body text remains spacious and never below 14px.
+The project self-hosts the Latin subset of the Manrope variable font as WOFF2. Microsoft YaHei and system sans-serif fonts provide Chinese and platform fallbacks. Display type uses tight tracking, heavy variable weights, and balanced wrapping. Body text remains at least 14px, uses generous line height, and stays within roughly 65 characters when practical.
+
+Use one sentence register: direct first-person language, concrete nouns, and active verbs. Avoid em dashes, promotional adjectives, mock-poetic metadata, invented numbers, and unsupported outcomes.
 
 ## Layout
 
-The main shell is at most 1120px with 32px desktop and 14px mobile page gutters. Sections use thin rules, an editorial two-column grid, and an 8px spacing rhythm. The first viewport must identify Frank, his focus, and credible proof through selected work or outcomes.
+The shell is at most 1260px with 32px desktop and 14px mobile gutters. Desktop layouts use a 12-column grid. The homepage uses five distinct families:
 
-## Elevation & Depth
+1. Asymmetric text-and-photography hero.
+2. Three-item work map with one tall graphite block and two stacked blocks.
+3. Asymmetric project matrix with alternating seven- and five-column spans.
+4. Full-width process photograph with an offset text panel.
+5. Full-width vermilion contact footer.
 
-Hierarchy comes from typography, whitespace, one-pixel rules, and selective background shifts. Avoid floating cards, glass effects, decorative gradients, and ornamental depth.
+The hero must fit the initial desktop viewport, keep the headline to two visual lines where language permits, and expose the primary project action without scrolling. Below 768px, every multi-column surface becomes one strict reading column.
 
-## Shapes
+## Material, Shapes, and Depth
 
-Controls use 10–14px radii, project cards use 14px, and feature surfaces use 18px. Pills are reserved for technology tags; circles remain for live indicators and directional actions. Icons remain simple line icons.
+All components use sharp corners. Hierarchy comes from solid surfaces, cropped photography, block scale, controlled overlap, and whitespace. No glass panels, gradient blobs, generic cards, soft shadows, floating pills, or ornamental grid lines.
+
+## Imagery
+
+The hero and about sections use project-owned WebP assets generated specifically for this redesign. They depict tactile routing and modular workbench materials without screens, fake dashboards, text, robots, brains, neon nodes, or stock-office imagery. Images have meaningful localized alt text and explicit dimensions to avoid layout shift.
 
 ## Components
 
-Buttons have 48px minimum height, strong contrast, visible hover/focus states, and direct labels. Project cards expose index, role, title, summary, technology, repository metadata, and destination. Header and footer preserve their existing route and localization behaviors.
+Buttons are at least 52px high, never wrap on desktop, and have visible hover, active, and focus states. Project cards are content blocks rather than floating containers. A full-card repository link remains keyboard accessible and receives an obvious focus-within outline. The mobile menu keeps a 44px target and accurate `aria-expanded` state.
 
-## Interaction
+## Interaction and Motion
 
-Primary navigation is immediate and keyboard accessible. External destinations are marked consistently. Hover effects reinforce direction or selection without moving essential content. Mobile navigation remains an explicit toggle with `aria-expanded`.
+Motion communicates hierarchy and feedback. The hero copy and image enter once in sequence; project blocks and buttons provide restrained pointer and pressed feedback. Only transform and opacity animate. Reduced motion collapses animations and smooth scrolling to immediate states.
 
-## Motion
-
-Motion is quiet and local: link feedback, project preview continuity, and restrained section entry. Animate only transform and opacity where possible, and fully neutralize motion under `prefers-reduced-motion`.
+Do not add scroll listeners, scroll cues, magnetic effects, perpetual loops, marquees, or motion that exists only for spectacle.
 
 ## Responsive Behavior
 
-Desktop compositions collapse to a single reading column below 900px. At 375px, actions become full width, metadata may wrap, and no horizontal scrolling is permitted. Decorative content can simplify, but orientation, project access, and language switching remain available.
-
-## Content & Terminology
-
-Voice is direct, personal, and understated. Use first person, short sentences, and concrete opinions instead of résumé-like descriptions. Chinese is the default; English mirrors meaning rather than word order.
+Desktop supports the full asymmetric composition. At tablet widths the hero remains split but uses a smaller type scale and image. Below 768px, the hero, practice blocks, project matrix, about composition, navigation, and footer links become single-column. At 375px there must be no horizontal scrolling, clipped focus ring, hidden action, or accidental one-word line.
 
 ## Accessibility
 
-Meet WCAG AA contrast, preserve semantic headings and landmarks, provide visible focus rings, support keyboard navigation, and honor reduced motion. Decorative elements are hidden from assistive technology.
+Meet WCAG AA contrast, preserve semantic landmarks and heading order, expose visible focus, retain the skip link, and support keyboard navigation. Both theme token sets must keep body text and actions readable. Generated imagery carries localized descriptive alt text. Decorative arrows are hidden from assistive technology.
 
 ## Product States
 
-GitHub metadata may show loading skeletons and reliable local fallback values. Navigation, missing routes, and external links have explicit states. Future data-driven modules must define loading, empty, failure, and stale behavior before shipping.
-
-## Data Visualization
-
-No chart system is currently used. Any future chart must include a textual alternative and reuse the navy/signal palette with patterns or labels rather than color alone.
+GitHub loading uses shape-matched skeletons. The fallback notice states that saved data is being shown when GitHub is unavailable. Navigation, direct routes, not-found recovery, project expansion, localization, and external links retain explicit states.
 
 ## Do's and Don'ts
 
-- Do lead with concrete outcomes, maintained projects, technical judgment, and meaningful structural rules.
-- Do make selected work visible in or immediately after the first viewport.
-- Don't use generic developer status widgets, coordinates, excessive technology pills, gradient hero blobs, rounded-card grids, glassmorphism, or decorative badges.
-- Don't trade Chinese readability for oversized typography or force desktop compositions onto mobile.
+- Do show real maintained projects and explain the actual friction behind them.
+- Do use one vermilion accent and one sharp shape language across the site.
+- Do use the generated workbench photography as real compositional content.
+- Don't add location, weather, version, availability, or decorative status strips.
+- Don't use equal three-card rows, repeated split headers, fake product UI, random icons, glassmorphism, gradients, or AI-purple effects.
+- Don't invent clients, testimonials, metrics, outcomes, or biography.
