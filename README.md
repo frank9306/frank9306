@@ -1,5 +1,3 @@
-![Frank - Full-Stack Engineer focused on Python, RPA, and Browser Automation](./github-frank9306-banner.png)
-
 ## 你好，我是 Frank 👋
 
 一名拥有近十年软件开发经验的全栈工程师，做过浏览器自动化引擎、RPA 平台、Linux 云桌面和虚拟化产品。
