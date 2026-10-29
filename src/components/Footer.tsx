@@ -8,8 +8,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-lead">
-          <h2>{zh ? '有 Agent 或自动化的问题？' : 'Working through an agent or automation problem?'}</h2>
-          <p>{zh ? '把问题发来，我们从具体约束开始聊。' : 'Send the problem over. We can start with the constraints.'}</p>
+          <h2>{zh ? '联系我' : 'Contact me'}</h2>
+          <p>{zh ? '有事找我，或者聊聊也行。' : 'Get in touch, or just say hello.'}</p>
         </div>
         <div className="footer-links" aria-label={zh ? '联系方式' : 'Contact links'}>
           <a href={profileLinks.email}>Email <span aria-hidden="true">↗</span></a>

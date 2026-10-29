@@ -15,10 +15,10 @@ export function HomePage() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="hero-kicker">Frank / {zh ? '独立开发者' : 'Independent developer'}</p>
-            <h1 id="hero-title">{zh ? '把重复工作，做成可复用的工具。' : 'I turn repeated work into reusable tools.'}</h1>
+            <h1 id="hero-title">{zh ? '这里放我的项目、笔记，还有一些没做完的想法。' : 'Here are my projects, notes, and a few unfinished ideas.'}</h1>
             <p className="hero-intro">{zh ? '我是 Frank，做 AI Agent、Codex 工具和自动化。' : "I'm Frank. I build AI agents, Codex tools, and automation."}</p>
             <div className="hero-actions">
-              <SiteLink href="/projects" className="button button-primary">{zh ? '看项目' : 'See projects'} <span aria-hidden="true">↗</span></SiteLink>
+              <SiteLink href="/projects" className="button button-primary">{zh ? '查看项目' : 'View projects'} <span aria-hidden="true">↗</span></SiteLink>
               <a className="hero-github" href={profileLinks.github} target="_blank" rel="noreferrer" aria-label={zh ? '在 GitHub 查看 Frank' : 'View Frank on GitHub'}>GitHub <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -42,22 +42,22 @@ export function HomePage() {
         <div className="practice-grid">
           <article className="practice-item practice-item-primary">
             <h3>{zh ? 'Agent 工作流' : 'Agent workflows'}</h3>
-            <p>{zh ? '把目标、上下文和交付方式接起来。' : 'Connect goals, context, and delivery into one working flow.'}</p>
+            <p>{zh ? '给 Agent 说明要做什么、参考什么、最后交付什么。' : 'Tell agents what to do, what to refer to, and what to deliver.'}</p>
           </article>
           <article className="practice-item">
             <h3>{zh ? '工程验证' : 'Engineering checks'}</h3>
-            <p>{zh ? '让检查、证据和结论留在同一条链路里。' : 'Keep checks, evidence, and conclusions in the same chain.'}</p>
+            <p>{zh ? '检查结果，也记下怎么查的、发现了什么。' : 'Check the results and record how I checked them and what I found.'}</p>
           </article>
           <article className="practice-item practice-item-accent">
             <h3>{zh ? '日常自动化' : 'Everyday automation'}</h3>
-            <p>{zh ? '把重复配置和频繁跳转收成小工具。' : 'Turn repeated setup and tab switching into small tools.'}</p>
+            <p>{zh ? '写些小工具，少改几遍配置，少切几个页面。' : 'Write small tools to cut down on repeated setup and switching tabs.'}</p>
           </article>
         </div>
       </section>
 
       <section className="featured-section page-shell" aria-labelledby="featured-title">
         <div className="section-heading">
-          <h2 id="featured-title">{zh ? '最近还在维护的项目' : 'Projects I still maintain'}</h2>
+          <h2 id="featured-title">{zh ? '我做的东西' : 'Things I’ve made'}</h2>
           <SiteLink href="/projects" className="text-link">{zh ? '看全部' : 'View all'} <span aria-hidden="true">↗</span></SiteLink>
         </div>
         <div className="project-grid featured-grid">
@@ -80,8 +80,8 @@ export function HomePage() {
         </div>
         <div className="about-panel">
           <h2 id="about-title">{zh ? '先解决自己的问题。' : 'Start with my own problems.'}</h2>
-          <p>{zh ? '我从每天真正遇到的摩擦出发：反复改配置、Agent 结果难验收、常用入口太散。跑通之后，再把它们整理成别人也能复用的代码和笔记。' : 'I start with friction I actually run into: repeated configuration, agent work that is hard to verify, and links scattered across tabs. Once a fix works, I turn it into reusable code and notes.'}</p>
-          <a href={profileLinks.knowledge} target="_blank" rel="noreferrer">{zh ? '看文章和笔记' : 'Read the notes'} <span aria-hidden="true">↗</span></a>
+          <p>{zh ? '反复改配置、检查 Agent 的结果、到处找常用链接，这些事我每天都会碰到。我会写点工具解决，再把代码和笔记放出来。' : 'I keep changing settings, checking agent results, and hunting for links. I write tools to help with these everyday problems, then share the code and notes.'}</p>
+          <a href={profileLinks.knowledge} target="_blank" rel="noreferrer">{zh ? '看笔记' : 'Read the notes'} <span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </>

@@ -117,6 +117,14 @@ test.describe('portfolio browser journey', () => {
     await page.evaluate(() => localStorage.setItem('webfrank-locale', 'zh'))
     await page.reload()
 
+    await expect(page.locator('h1')).toHaveText('这里放我的项目、笔记，还有一些没做完的想法。')
+    await expect(page.getByRole('heading', { name: '我做的东西' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '联系我' })).toBeVisible()
+    await expect(page.getByText('有事找我，或者聊聊也行。')).toBeVisible()
+    await expect(page.locator('.hero-actions a').first()).toHaveAttribute('href', '/projects')
+    await page.screenshot({ path: testInfo.outputPath('homepage-zh.png'), fullPage: true })
+    await testInfo.attach('homepage-zh', { path: testInfo.outputPath('homepage-zh.png'), contentType: 'image/png' })
+
     if (testInfo.project.name !== 'desktop-chrome') {
       const menu = page.locator('.menu-button')
       await expect(menu).toHaveAccessibleName('打开菜单')
@@ -125,9 +133,17 @@ test.describe('portfolio browser journey', () => {
     }
 
     await page.getByRole('button', { name: 'Switch to English' }).click()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('I turn repeated work into reusable tools.')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Here are my projects, notes, and a few unfinished ideas.')
     await page.reload()
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('I turn repeated work into reusable tools.')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Here are my projects, notes, and a few unfinished ideas.')
+    await expect(page.getByRole('heading', { name: 'Contact me' })).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true)
+    await page.screenshot({ path: testInfo.outputPath('homepage-en.png'), fullPage: true })
+    await testInfo.attach('homepage-en', { path: testInfo.outputPath('homepage-en.png'), contentType: 'image/png' })
+    await page.locator('.hero-actions a').first().click()
+    await expect(page).toHaveURL(/\/projects$/)
+    await expect(page.locator('h1')).toHaveText('Projects')
+
   })
 
   test('supports keyboard focus and core WCAG AA contrast', async ({ page }, testInfo) => {

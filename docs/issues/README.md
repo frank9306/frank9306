@@ -12,7 +12,9 @@ None.
 
 ## In progress
 
-None.
+| ID | Title |
+|---|---|
+| [ISSUE-0008](ISSUE-0008-simplify-homepage-copy.md) | Simplify homepage copy in a natural personal voice |
 
 ## Blocked
 
