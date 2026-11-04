@@ -10,7 +10,8 @@
     "typecheck": "tsc -b --pretty false",
     "test": "vitest run",
     "browser-test": "playwright test",
-    "design-check": "node scripts/design-check.mjs"
+    "design-check": "node scripts/design-check.mjs",
+    "profile:update": "node scripts/update-profile.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "4.7.0",

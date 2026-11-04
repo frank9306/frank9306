@@ -1,0 +1,45 @@
+name: Update GitHub profile
+
+on:
+  schedule:
+    # 02:23 Asia/Shanghai, away from the top of the hour.
+    - cron: '23 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-profile-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'frank9306/frank9306'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install existing tooling
+        run: npm ci
+      - name: Test profile behavior
+        run: npm test -- scripts/profile/generate.test.mjs
+      - name: Generate complete public snapshot
+        run: npm run profile:update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit generated resources only
+        run: |
+          git add -- profile/generated/desktop-light.svg profile/generated/desktop-dark.svg profile/generated/mobile-light.svg profile/generated/mobile-dark.svg profile/generated/stats.json
+          if git diff --cached --quiet; then
+            echo "Profile resources are unchanged."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(profile): refresh public GitHub statistics'
+          git push

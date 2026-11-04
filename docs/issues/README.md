@@ -31,6 +31,9 @@ None.
 | [ISSUE-0005](ISSUE-0005-polish-the-portfolio-with-the-taste-skill-redesign-audit.md) | Polish the portfolio with the Taste Skill redesign audit |
 | [ISSUE-0006](ISSUE-0006-rewrite-portfolio-copy-in-a-direct-developer-voice.md) | Rewrite portfolio copy in a direct developer voice |
 | [ISSUE-0007](ISSUE-0007-redesign-portfolio-as-an-editorial-systems-workbench.md) | Redesign portfolio as an editorial systems workbench |
+| [ISSUE-0009](ISSUE-0009-build-a-terminal-style-github-profile-with-live-public-statistics.md) | Build a terminal-style GitHub profile with live public statistics |
+| [ISSUE-0010](ISSUE-0010-restore-likeness-and-proportions-in-the-github-ascii-portrait.md) | Restore likeness and proportions in the GitHub ASCII portrait |
+| [ISSUE-0011](ISSUE-0011-ground-the-github-introduction-in-the-current-public-repositories.md) | Ground the public GitHub introduction in the repository portfolio |
 
 ## Cancelled
 

@@ -1,0 +1,12 @@
+{
+  "login": "frank9306",
+  "name": "Frank",
+  "role": "全栈工程师",
+  "experience": "近十年开发经验",
+  "focus": ["Agent Skills 与 AI 编程", "浏览器 / Android 自动化", "个人 Agent 与桌面工具"],
+  "stack": ["Python · TypeScript · Rust", "React · Tauri · FastAPI · LangGraph"],
+  "tools": "Codex · Claude",
+  "website": "webfrank.top",
+  "notes": "knowledge.webfrank.top",
+  "avatarSource": "https://avatars.githubusercontent.com/u/18733115?v=4"
+}
