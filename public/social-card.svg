@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f1efe8"/>
-  <rect x="760" width="440" height="630" fill="#191918"/>
-  <rect x="760" y="406" width="440" height="224" fill="#bd3f1f"/>
-  <text x="76" y="104" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#bd3f1f">WEBFRANK.TOP</text>
-  <text x="70" y="322" font-family="Arial,sans-serif" font-size="128" font-weight="700" letter-spacing="-8" fill="#191918">FRANK</text>
-  <text x="78" y="390" font-family="Arial,sans-serif" font-size="31" fill="#56554f">AI agents, Codex tools, automation</text>
-  <path d="M850 116h210v210H850zM906 172h98v98h-98z" fill="none" stroke="#f4f1e9" stroke-width="12"/>
-  <path d="M850 221h-90M1060 221h80" stroke="#f4f1e9" stroke-width="12"/>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#087c7d"/>
+  <rect x="76" y="70" width="1048" height="470" fill="#c6c6bf" stroke="#fffef5" stroke-width="4"/>
+  <path d="M1124 70v470H76" fill="none" stroke="#292c2a" stroke-width="5"/>
+  <rect x="84" y="78" width="1032" height="52" fill="#102775"/>
+  <text x="104" y="114" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#fff">hello.txt</text>
+  <rect x="84" y="138" width="1032" height="394" fill="#fffaf0"/>
+  <text x="130" y="270" font-family="Arial,sans-serif" font-size="68" font-weight="700" fill="#161819">Frank's desktop</text>
+  <text x="132" y="336" font-family="Arial,sans-serif" font-size="28" fill="#505452">Tools I build. Notes I write.</text>
+  <rect x="132" y="390" width="240" height="65" fill="#c6c6bf" stroke="#292c2a" stroke-width="3"/>
+  <text x="170" y="433" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#161819">webfrank.top</text>
+  <path d="M850 254h156v134H850zM826 415h204v24H826z" fill="#dad5b9" stroke="#20242a" stroke-width="5"/>
+  <rect x="868" y="273" width="120" height="92" fill="#102775"/>
+  <path d="m886 298 15 12-15 12m32 3h25" fill="none" stroke="#fff" stroke-width="5"/>
 </svg>

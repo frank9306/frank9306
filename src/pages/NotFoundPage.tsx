@@ -1,15 +1,12 @@
-import { SiteLink } from '../components/Link'
+﻿import { SiteLink } from '../components/Link'
 import { useLanguage } from '../context/LanguageContext'
 
 export function NotFoundPage() {
   const { locale } = useLanguage()
   const zh = locale === 'zh'
-  return (
-    <div className="not-found page-shell">
-      <p className="error-code">404 / NOT FOUND</p>
-      <h1>{zh ? '这个页面不存在。' : "This page doesn't exist."}</h1>
-      <p>{zh ? '链接可能已经变了。先回首页看看。' : 'The link may have changed. Head back home.'}</p>
-      <SiteLink href="/" className="button button-primary">{zh ? '返回首页' : 'Back home'} <span aria-hidden="true">↗</span></SiteLink>
-    </div>
-  )
+  return <div className="not-found-document">
+    <h1>{zh ? '这个文件不在桌面上。' : 'This file is not on the desktop.'}</h1>
+    <p>{zh ? '地址可能已经改变。回到桌面，继续查看项目或笔记。' : 'The address may have changed. Return to the desktop to explore projects and notes.'}</p>
+    <SiteLink className="retro-button" href="/">{zh ? '返回桌面' : 'Back to desktop'}</SiteLink>
+  </div>
 }

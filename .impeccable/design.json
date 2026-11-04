@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T06:45:00Z",
+  "title": "Frank's desktop",
+  "extensions": {
+    "shadows": [{"name":"bevel","value":"inset -1px -1px 0 var(--edge), inset 1px 1px 0 var(--highlight)","purpose":"Period window and button chrome."}],
+    "motion": [{"name":"document-arrive","value":"240ms cubic-bezier(.16, 1, .3, 1)","purpose":"Welcome copy displacement; disabled for reduced motion."}],
+    "breakpoints": [{"name":"compact","value":"1000px"},{"name":"phone","value":"600px"}]
+  },
+  "components": [
+    {"name":"Beveled button","kind":"button","refersTo":"button","description":"Action with pressed, hover and keyboard feedback.","html":"<button class=\"ds-button\">Open my projects</button>","css":".ds-button {font:700 16px Manrope,sans-serif;background:var(--surface);color:var(--ink);padding:7px 15px;min-height:44px;border:2px solid;border-color:var(--highlight) var(--shadow) var(--shadow) var(--highlight);box-shadow:inset -1px -1px 0 var(--edge);cursor:pointer} .ds-button:hover{filter:brightness(1.06)} .ds-button:active{border-color:var(--shadow) var(--highlight) var(--highlight) var(--shadow)} .ds-button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}"},
+    {"name":"Window title","kind":"custom","refersTo":"titlebar","description":"Active navy title strip.","html":"<div class=\"ds-title\">hello.txt — Notepad</div>","css":".ds-title{background:var(--title);color:#fff;height:37px;display:flex;align-items:center;padding:0 8px;font:800 19px Manrope,sans-serif}"},
+    {"name":"Read-only location","kind":"custom","description":"Location metaphor, never a filesystem input.","html":"<div class=\"ds-location\">C:\\Frank\\Projects</div>","css":".ds-location{background:var(--paper);color:var(--ink);border:2px solid;border-color:var(--edge) var(--highlight) var(--highlight) var(--edge);padding:4px 10px;font:14px Manrope,sans-serif}"},
+    {"name":"Document link","kind":"nav","description":"Explicit external reading destination.","html":"<a class=\"ds-note\" href=\"https://knowledge.webfrank.top/\">Read in the knowledge base ↗</a>","css":".ds-note{font:700 16px Manrope,sans-serif;color:var(--ink);text-underline-offset:4px;display:inline-block;padding:8px} .ds-note:focus-visible{outline:3px solid var(--focus)} .ds-note:hover{color:var(--link)}"},
+    {"name":"Selected task","kind":"button","description":"Taskbar selection uses a pressed bevel and paper surface.","html":"<button class=\"ds-task\" aria-pressed=\"true\">My projects</button>","css":".ds-task{background:var(--paper);color:var(--ink);border:2px solid;border-color:var(--shadow) var(--highlight) var(--highlight) var(--shadow);padding:5px 10px;min-height:42px;font:800 15px Manrope,sans-serif} .ds-task:hover{filter:brightness(1.06)} .ds-task:focus-visible{outline:3px solid var(--focus);outline-offset:-5px}"}
+  ],
+  "narrative": {
+    "northStar":"Frank's useful desktop",
+    "overview":"A colorful Windows 95/98 desktop makes projects feel like applications and articles like documents. The owner-selected reference replaces the previous editorial workbench and the rejected Macintosh concept. These are real windows around live HTML; illustration supplies warmth while controls provide actual navigation and reversible exploration.",
+    "keyCharacteristics":["Teal desktop, navy title bars, beveled gray chrome and warm paper.","Colorful icons on one crisp SVG grid, alongside an original pixel-art desk bitmap.","Readable Chinese and English, system theme support and a compact single foreground window."],
+    "rules":[{"name":"Readable Paper","body":"Body copy, secondary text, title text and button text must each reach 4.5:1 against their actual computed surface in both schemes. Browser measurements belong in test evidence; values in this document alone do not establish contrast.","section":"colors"},{"name":"Beveled Chrome","body":"Depth comes from a two-pixel light top/left and dark bottom/right border, plus one-pixel inset edge lines. Pressed buttons reverse this relationship. This is the selected period's material, with no modern diffuse drop shadow, blur or rounded card treatment.","section":"elevation"},{"name":"Reversible Exploration","body":"Reopening restores one existing window; task buttons reflect actual open windows. Project links remain native anchors. Minimization preserves `/projects`; closure returns `/`; history restores the defined route state.","section":"components"}],
+    "dos":["Do preserve real project selection, external destinations, automatic theme and bilingual content.","Do verify window bounds, scrolling, focus and contrast in the rendered browser at shipping sizes.","Do retain the shipping raster's exact generation prompt in its sidecar and PNG metadata."],
+    "donts":["Don't add a pretend recycle bin, online status, terminal input or fake project controls.","Don't restore workbench photography, Macintosh stripes, modern rounded cards or glass blur.","Don't rasterize page text or treat concept imagery as runtime evidence."]
+  }
+}

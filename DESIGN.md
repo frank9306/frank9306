@@ -1,100 +1,118 @@
----
-version: 2.0
-name: Webfrank Systems Workbench
-tokens:
-  colors:
-    canvas-light: "#f1efe8"
-    canvas-dark: "#171716"
-    ink-light: "#191918"
-    ink-dark: "#f2efe7"
-    accent-light: "#bd3f1f"
-    accent-dark: "#ff6847"
-  typography:
-    display: "Self-hosted Manrope + Microsoft YaHei"
-    body: "Self-hosted Manrope + Microsoft YaHei"
-    utility: "Self-hosted Manrope + Microsoft YaHei"
-  spacing: "7px base rhythm with optical section spacing"
-  radii: "Sharp rectangular geometry throughout"
-  elevation: "Solid tonal blocks and overlap, no decorative shadows"
-  motion: "140-760ms, hierarchy and feedback only, reduced-motion safe"
+﻿---
+name: "Frank's desktop"
+description: "A useful, colorful Windows 95/98 desktop for real projects and notes."
+colors:
+  desktop: "#087c7d"
+  window: "#c6c6bf"
+  paper: "#fffaf0"
+  ink: "#161819"
+  muted: "#505452"
+  title: "#102775"
+  inactive-title: "#243873"
+  highlight: "#fffef5"
+  edge: "#85867f"
+  shadow: "#292c2a"
+  focus: "#8d310d"
+  dark-desktop: "#064c50"
+  dark-window: "#454d50"
+  dark-paper: "#232c2e"
+  dark-ink: "#fff7e6"
+  dark-muted: "#c1c9c6"
+  dark-title: "#12286e"
+  dark-focus: "#ffce6b"
+typography:
+  display:
+    fontFamily: "Manrope, Microsoft YaHei, PingFang SC, sans-serif"
+    fontSize: "clamp(25px, 2.55vw, 38px)"
+    fontWeight: 800
+    lineHeight: 1.35
+    letterSpacing: "-0.03em"
+  body:
+    fontFamily: "Manrope, Microsoft YaHei, PingFang SC, sans-serif"
+    fontSize: "16px"
+    lineHeight: 1.6
+  title:
+    fontFamily: "Manrope, Microsoft YaHei, PingFang SC, sans-serif"
+    fontSize: "19px"
+    fontWeight: 800
+spacing:
+  compact: "8px"
+  group: "14px"
+  document: "20px"
+components:
+  button:
+    backgroundColor: "{colors.window}"
+    textColor: "{colors.ink}"
+    padding: "7px 15px"
+    height: "44px minimum"
+  titlebar:
+    backgroundColor: "{colors.title}"
+    textColor: "#ffffff"
+    height: "37px desktop / 44px compact"
 ---
 
-# Webfrank Systems Workbench
+# Frank's desktop
 
 ## Overview
 
-Webfrank is Frank's bilingual portfolio for developers and collaborators interested in AI agents, developer tools, verification, and automation. The site is treated as a redesign overhaul: routes, real project facts, destinations, and localization remain stable while the visual language and page composition are rebuilt.
+**Creative North Star: "Frank's useful desktop"**
 
-The visual thesis is an editorial systems workbench. Cold paper, graphite, metal, translucent routing sheets, and a single vermilion signal make abstract software work feel tangible. Original generated photography is a content asset, not decoration. The interface should feel like evidence from a working practice rather than a résumé template.
+A colorful Windows 95/98 desktop makes projects feel like applications and articles like documents. The owner-selected reference replaces the previous editorial workbench and the rejected Macintosh concept. These are real windows around live HTML; illustration supplies warmth while controls provide actual navigation and reversible exploration.
 
-Taste Skill dials are DESIGN_VARIANCE 8, MOTION_INTENSITY 5, and VISUAL_DENSITY 4.
+**Key Characteristics:**
+
+- Teal desktop, navy title bars, beveled gray chrome and warm paper.
+- Colorful icons on one crisp SVG grid, alongside an original pixel-art desk bitmap.
+- Readable Chinese and English, system theme support and a compact single foreground window.
+
+Authority: accepted FRA-24 plan v3, revision `9d56f118-cfcc-4ba7-9bb1-8e8f9af412c9`; implementation ISSUE-0012. This record replaces the obsolete workbench design within that authorization. Product facts remain in PRODUCT.md; route strategy remains in `.impeccable/surfaces/src-app-tsx.md`.
 
 ## Colors
 
-Light mode uses cold paper `#f1efe8`, graphite `#191918`, and vermilion `#bd3f1f`. Dark mode uses charcoal `#171716`, warm white `#f2efe7`, and brighter vermilion `#ff6847`. The browser's color preference selects the mode. Vermilion is the only accent family and is used for actions, focus, selected states, and the final contact block.
+Frontmatter lists implemented primitives; CSS custom properties in `src/styles.css` own runtime values. Teal is the desktop ground, navy carries titles and selection, gray carries the chrome, and warm paper carries reading. Pixel artwork uses its own small natural palette. System dark preference changes ground, chrome, paper, foreground and focus, while preserving the desktop identity.
 
-Do not introduce blue, purple, neon, or gradient accents. Contained graphite blocks may invert type, but whole sections do not switch to a second theme.
+**The Readable Paper Rule.** Body copy, secondary text, title text and button text must each reach 4.5:1 against their actual computed surface in both schemes. Browser measurements belong in test evidence; values in this document alone do not establish contrast.
 
 ## Typography
 
-The project self-hosts the Latin subset of the Manrope variable font as WOFF2. Microsoft YaHei and system sans-serif fonts provide Chinese and platform fallbacks. Display type uses tight tracking, heavy variable weights, and balanced wrapping. Body text remains at least 14px, uses generous line height, and stays within roughly 65 characters when practical.
-
-Use one sentence register: direct first-person language, concrete nouns, and active verbs. Avoid em dashes, promotional adjectives, mock-poetic metadata, invented numbers, and unsupported outcomes.
+Latin text uses the existing self-hosted Manrope WOFF2. Chinese uses Microsoft YaHei/PingFang with a system fallback, as required for readable live text. Welcome headlines use the display role, project names step down to 19px desktop / 21px compact, and project summaries use the body role. Metadata and small utilities may use 11–14px, distinct from prose. Compact welcome headlines use 29px on phones and 34px on tablets. Headings balance where possible; project names and long tags wrap anywhere rather than forcing horizontal scroll.
 
 ## Layout
 
-The shell is at most 1260px with 32px desktop and 14px mobile gutters. Desktop layouts use a 12-column grid. The homepage uses five distinct families:
+The menu is 50px high and the taskbar 54px on desktop. A 124px shortcut rail borders a responsive workspace. Windows have bounded, transient coordinates; their bodies scroll. Normal and maximized geometry stays inside the usable workspace. Short desktops minimize auxiliary documents; every open window has a task button.
 
-1. Asymmetric text-and-photography hero.
-2. Three-item work map with one tall graphite block and two stacked blocks.
-3. Asymmetric project matrix with alternating seven- and five-column spans.
-4. Full-width process photograph with an offset text panel.
-5. Full-width vermilion contact footer.
+At 1000px and below, the menu becomes a compact header, shortcuts become a horizontal launcher and one foreground window takes normal document flow. Background documents are hidden and inert. The taskbar stays fixed with horizontally scrollable task buttons. At 600px, the project browser becomes a single reading column. Document bottom padding and scroll margins reserve the taskbar's space. There is no coordinate persistence or free resizing.
 
-The hero must fit the initial desktop viewport, keep the headline to two visual lines where language permits, and expose the primary project action without scrolling. Below 768px, every multi-column surface becomes one strict reading column.
+## Elevation & Depth
 
-## Material, Shapes, and Depth
+**The Beveled Chrome Rule.** Depth comes from a two-pixel light top/left and dark bottom/right border, plus one-pixel inset edge lines. Pressed buttons reverse this relationship. This is the selected period's material, with no modern diffuse drop shadow, blur or rounded card treatment.
 
-All components use sharp corners. Hierarchy comes from solid surfaces, cropped photography, block scale, controlled overlap, and whitespace. No glass panels, gradient blobs, generic cards, soft shadows, floating pills, or ornamental grid lines.
+## Shapes
 
-## Imagery
-
-The hero and about sections use project-owned WebP assets generated specifically for this redesign. They depict tactile routing and modular workbench materials without screens, fake dashboards, text, robots, brains, neon nodes, or stock-office imagery. Images have meaningful localized alt text and explicit dimensions to avoid layout shift.
+Windows, buttons and document surfaces are rectangular. Pixel icons use a shared 32-unit authored geometry and crisp edge rendering. The standalone generated desk illustration is picture content, never an SVG approximation of a picture or a simulated application screenshot.
 
 ## Components
 
-Buttons are at least 52px high, never wrap on desktop, and have visible hover, active, and focus states. Project cards are content blocks rather than floating containers. A full-card repository link remains keyboard accessible and receives an obvious focus-within outline. The mobile menu keeps a 44px target and accurate `aria-expanded` state.
+Buttons name their action, show hover/pressed/focus states and use at least 44px touch targets in compact mode. Small desktop title controls retain period proportions; compact mode provides 44px hit areas. Window title buttons minimize, maximize/restore and close; maximize and moving controls are absent in compact mode. Menus support arrows, Home/End and Escape; equivalent preset positions and reset live in Help.
 
-## Interaction and Motion
+Project items include a real summary, explicit named repository link, technology and public metadata. Empty/loading/cache/fallback states are visible. Article labels lead to verified original articles, with a Chinese-content cue in English. Locale persists and metadata follows the route. Focus is visible, minimized/closed windows return it to a useful entry, and background mobile windows cannot receive it.
 
-Motion communicates hierarchy and feedback. The hero copy and image enter once in sequence; project blocks and buttons provide restrained pointer and pressed feedback. Only transform and opacity animate. Reduced motion collapses animations and smooth scrolling to immediate states.
+**The Reversible Exploration Rule.** Reopening restores one existing window; task buttons reflect actual open windows. Project links remain native anchors. Minimization preserves `/projects`; closure returns `/`; history restores the defined route state.
 
-Do not add scroll listeners, scroll cues, magnetic effects, perpetual loops, marquees, or motion that exists only for spectacle.
-
-## Responsive Behavior
-
-Desktop supports the full asymmetric composition. At tablet widths the hero remains split but uses a smaller type scale and image. Below 768px, the hero, practice blocks, project matrix, about composition, navigation, and footer links become single-column. At 375px there must be no horizontal scrolling, clipped focus ring, hidden action, or accidental one-word line.
-
-## Accessibility
-
-Meet WCAG AA contrast, preserve semantic landmarks and heading order, expose visible focus, retain the skip link, and support keyboard navigation. Both theme token sets must keep body text and actions readable. Generated imagery carries localized descriptive alt text. Decorative arrows are hidden from assistive technology.
-
-## Product States
-
-GitHub loading uses shape-matched skeletons. The fallback notice states that saved data is being shown when GitHub is unavailable. Navigation, direct routes, not-found recovery, project expansion, localization, and external links retain explicit states.
+Only the welcome copy has a brief 240ms entrance displacement; reduced motion removes it. No boot delay, sound or perpetual animation.
 
 ## Do's and Don'ts
 
-- Do show real maintained projects and explain the actual friction behind them.
-- Do use one vermilion accent and one sharp shape language across the site.
-- Do use the generated workbench photography as real compositional content.
-- Don't add location, weather, version, availability, or decorative status strips.
-- Don't use equal three-card rows, repeated split headers, fake product UI, random icons, glassmorphism, gradients, or AI-purple effects.
-- Don't invent clients, testimonials, metrics, outcomes, or biography.
+- Do preserve real project selection, external destinations, automatic theme and bilingual content.
+- Do verify window bounds, scrolling, focus and contrast in the rendered browser at shipping sizes.
+- Do retain the shipping raster's exact generation prompt in its sidecar and PNG metadata.
+- Don't add a pretend recycle bin, online status, terminal input or fake project controls.
+- Don't restore workbench photography, Macintosh stripes, modern rounded cards or glass blur.
+- Don't rasterize page text or treat concept imagery as runtime evidence.
 
 ## GitHub profile README
 
-This separate surface follows the approved terminal-card plan (ISSUE-0009), rather than the website's vermilion/sharp-corner visual system. It uses a gray ASCII portrait, blue headings, brown/orange keys, dotted leaders and a subtle rounded border. Desktop assigns roughly 35% to the portrait; mobile stacks portrait and information. Both have explicit light/dark assets selected by README picture sources, with native Markdown projects/contact links and a text biography outside the image.
+This separate surface follows the approved terminal-card plan (ISSUE-0009), rather than the website's retro desktop visual system. It uses a gray ASCII portrait, blue headings, brown/orange keys, dotted leaders and a subtle rounded border. Desktop assigns roughly 35% to the portrait; mobile stacks portrait and information. Both have explicit light/dark assets selected by README picture sources, with native Markdown projects/contact links and a text biography outside the image.
 
 ### Module contract (recorded before generation)
 

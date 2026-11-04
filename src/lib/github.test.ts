@@ -54,4 +54,21 @@ describe('GitHub project data', () => {
     expect(result.projects).toHaveLength(4)
     expect(result.projects[0].stars).toBeGreaterThanOrEqual(0)
   })
+
+  it('aborts a stalled request and returns the local fallback', async () => {
+    vi.useFakeTimers()
+    try {
+      const fetcher = vi.fn((_input: unknown, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
+        init?.signal?.addEventListener('abort', () => reject(new DOMException('Timed out', 'AbortError')))
+      }))
+      const pending = loadProjects({ storage: localStorage, fetcher: fetcher as typeof fetch, timeoutMs: 10 })
+      await vi.advanceTimersByTimeAsync(10)
+      const result = await pending
+      expect(result.source).toBe('fallback')
+      expect(result.projects).toHaveLength(4)
+      expect(fetcher.mock.calls[0][1]?.signal?.aborted).toBe(true)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
 })

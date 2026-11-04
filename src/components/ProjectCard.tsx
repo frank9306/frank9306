@@ -1,20 +1,22 @@
 import { useLanguage } from '../context/LanguageContext'
 import type { Project } from '../types'
+import { PixelIcon, type PixelIconName } from './PixelIcon'
 
-export function ProjectCard({ project, compact = false, loading = false }: { project: Project; compact?: boolean; loading?: boolean }) {
+export function ProjectCard({ project, loading = false }: { project: Project; loading?: boolean }) {
   const { locale } = useLanguage()
   const zh = locale === 'zh'
   const date = new Intl.DateTimeFormat(zh ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short' }).format(new Date(project.updatedAt))
 
   return (
-    <article className={`project-card ${compact ? 'compact' : ''}`}>
-      <div className="project-card-top">
-        <span className="project-role">{project.role[locale]}</span>
-      </div>
+    <article className="project-card">
+      <div className="project-app-icon"><PixelIcon name={({ 'codex-switch-helper': 'bolt', polyharness: 'cubes', 'quick-nav': 'compass', 'agent-skills': 'robot' } as Record<string, PixelIconName>)[project.slug] ?? 'folder'} size={48} /></div>
       <div className="project-card-body">
         <h3>{project.name}</h3>
+        <span className="project-role">{project.role[locale]}</span>
         <p>{project.description[locale]}</p>
-      </div>
+        <a className="project-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`${zh ? '在 GitHub 查看' : 'View on GitHub'} ${project.name}`}>
+          <span>{zh ? '打开仓库' : 'Open repository'}</span><b aria-hidden="true">↗</b>
+        </a>
       <div className="project-tags" aria-label={zh ? '技术标签' : 'Technology tags'}>
         {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
       </div>
@@ -29,9 +31,7 @@ export function ProjectCard({ project, compact = false, loading = false }: { pro
           </>
         )}
       </div>
-      <a className="project-link" href={project.url} target="_blank" rel="noreferrer" aria-label={`${zh ? '在 GitHub 查看' : 'View on GitHub'} ${project.name}`}>
-        <span>{zh ? '查看仓库' : 'View repository'}</span><b aria-hidden="true">↗</b>
-      </a>
+      </div>
     </article>
   )
 }

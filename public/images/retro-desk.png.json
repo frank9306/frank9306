@@ -1,0 +1,11 @@
+{
+  "kind": "generated-original-illustration",
+  "tool": "image_gen.imagegen",
+  "date": "2026-11-04",
+  "task": "FRA-26",
+  "sourceFile": "exec-27152dd2-7c97-4dcf-928f-7ac241c62da9.png",
+  "prompt": "Use case: stylized-concept. Create one original wide pixel-art illustration asset for Frank's retro Windows 95/98 desktop website, NOT a screenshot or UI mockup. On a warm off-white background, a charming cozy desktop still life: articulated gray desk lamp at left casting soft pale yellow pixel light, cream CRT computer in the center with a dark navy screen displaying only C:\\>_, beige keyboard and small wired mouse, a steaming white coffee mug, and a lush green potted plant at right. Wooden desk shelf along the bottom. A small blank cream sticky note pinned above the computer. Composition fits a wide 3:2 frame with breathing room around all objects. Authentic colorful low-resolution hand-drawn pixel art with crisp stepped dark outlines, restrained beige/gray/teal/navy/yellow/leaf-green palette, subtle pixel dithering; warm, playful and tactile. No window chrome, buttons, interface labels, headline, brand logo, watermark, photographic texture or extra objects. All objects fully inside frame. This will sit beside live HTML copy in a welcome document. Generate a production-ready standalone bitmap asset.",
+  "referenceRole": "Owner's selected Windows 95/98 aesthetic in approved FRA-24 plan; no reference pixels copied.",
+  "text": "Terminal characters are decorative art, not an input. Caption is live localized HTML.",
+  "usage": "Welcome document artwork; original bitmap, not a runtime screenshot."
+}

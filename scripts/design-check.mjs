@@ -1,42 +1,32 @@
-import { access, readFile } from 'node:fs/promises'
+﻿import { access, readFile } from 'node:fs/promises'
 
-const [contract, styles, home, footer] = await Promise.all([
-  readFile(new URL('../DESIGN.md', import.meta.url), 'utf8'),
-  readFile(new URL('../src/styles.css', import.meta.url), 'utf8'),
-  readFile(new URL('../src/pages/HomePage.tsx', import.meta.url), 'utf8'),
-  readFile(new URL('../src/components/Footer.tsx', import.meta.url), 'utf8'),
+const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
+const [contract, styles, desktop, home, projects, notes] = await Promise.all([
+  read('DESIGN.md'), read('src/styles.css'), read('src/desktop/Desktop.tsx'),
+  read('src/pages/HomePage.tsx'), read('src/pages/ProjectsPage.tsx'), read('src/data/notes.ts'),
 ])
-
-const visibleCopy = `${home}\n${footer}`
-const assetChecks = await Promise.all([
-  access(new URL('../public/images/agent-workbench-hero.webp', import.meta.url)).then(() => true, () => false),
-  access(new URL('../public/images/workflow-modules.webp', import.meta.url)).then(() => true, () => false),
-  access(new URL('../public/fonts/Manrope-Latin.woff2', import.meta.url)).then(() => true, () => false),
-])
-
+const assets = await Promise.all(['public/images/retro-desk.png', 'public/images/retro-desk.png.json', 'public/fonts/Manrope-Latin.woff2'].map((path) => access(new URL(`../${path}`, import.meta.url)).then(() => true, () => false)))
 const requirements = [
-  ['design contract', contract.includes('# Webfrank Systems Workbench')],
-  ['explicit Taste Skill dials', contract.includes('DESIGN_VARIANCE 8, MOTION_INTENSITY 5, and VISUAL_DENSITY 4')],
-  ['semantic color tokens', /--canvas:|--surface:|--ink:|--accent:/.test(styles)],
-  ['light and dark theme tokens', styles.includes('@media (prefers-color-scheme: dark)')],
-  ['self-hosted variable font', styles.includes("url('/fonts/Manrope-Latin.woff2')") && !styles.includes('fonts.googleapis.com')],
-  ['project-owned imagery', assetChecks.every(Boolean) && home.includes('/images/agent-workbench-hero.webp') && home.includes('/images/workflow-modules.webp')],
-  ['visible focus treatment', styles.includes(':focus-visible') && styles.includes(':focus-within')],
-  ['mobile breakpoint', styles.includes('@media (max-width: 767px)')],
-  ['tablet breakpoint', styles.includes('@media (max-width: 980px)')],
+  ['current desktop design record', contract.includes("Frank's desktop") && contract.includes('#087c7d')],
+  ['teal/navy/paper semantic tokens', ['--desktop:', '--title:', '--paper:', '--ink:', '--focus:'].every((token) => styles.includes(token))],
+  ['automatic dark scheme', styles.includes('@media (prefers-color-scheme: dark)')],
+  ['self-hosted font', styles.includes("url('/fonts/Manrope-Latin.woff2')") && !styles.includes('fonts.googleapis.com')],
+  ['original desk asset and provenance', assets.every(Boolean) && home.includes('/images/retro-desk.png')],
+  ['visible keyboard and project focus', styles.includes(':focus-visible') && styles.includes('.project-card:focus-within')],
+  ['compact normal-flow layout', styles.includes('@media (max-width: 1000px)') && /\.desktop-window\s*\{\s*position:\s*relative/.test(styles)],
+  ['small mobile layout', styles.includes('@media (max-width: 600px)')],
   ['reduced motion fallback', styles.includes('@media (prefers-reduced-motion: reduce)')],
-  ['dynamic viewport hero', styles.includes('100dvh')],
-  ['asymmetric hero grid', /\.hero-grid\s*\{[^}]*repeat\(12/s.test(styles)],
-  ['asymmetric project matrix', /\.project-card:nth-child\(4n \+ 1\)[\s\S]*grid-column:\s*span 7/s.test(styles)],
-  ['sharp shape system', !styles.includes('border-radius')],
-  ['no transition all', !/transition:\s*all\b/.test(styles)],
-  ['no visible em dash', !/[—–]/.test(visibleCopy)],
+  ['dynamic viewport workspace', styles.includes('100dvh')],
+  ['hidden background focus boundary', desktop.includes('inert={hidden}') && desktop.includes('hidden={hidden}')],
+  ['native project route links', desktop.includes('href="/projects"')],
+  ['real taskbar and start menu', desktop.includes('task-buttons') && desktop.includes('start-button')],
+  ['keyboard position alternatives', desktop.includes("place('top')") && desktop.includes("type: 'reset'")],
+  ['loading/empty/cache/fallback states', ['empty-folder', "source === 'cache'", "source === 'fallback'", 'aria-busy'].every((state) => projects.includes(state))],
+  ['verified article targets', ['paperclip-codex-weixin-agent-company', 'vibe-coding-top-10-readings', 'cross-session-agent-handoff'].every((slug) => notes.includes(slug))],
+  ['sharp corners', !styles.includes('border-radius')],
+  ['targeted transitions', !/transition:\s*all\b/.test(styles)],
+  ['no obsolete workbench images in welcome', !home.includes('workbench')],
 ]
-
 const failures = requirements.filter(([, passed]) => !passed)
-if (failures.length) {
-  console.error(`Design check failed: ${failures.map(([name]) => name).join(', ')}`)
-  process.exit(1)
-}
-
-console.log(`Design check passed: ${requirements.length} contract and implementation requirements verified.`)
+if (failures.length) { console.error(`Design check failed: ${failures.map(([name]) => name).join(', ')}`); process.exit(1) }
+console.log(`Design check passed: ${requirements.length} contract/static requirements verified. Runtime layout and contrast require Playwright assertions.`)

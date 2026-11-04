@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
 import { useLanguage } from './context/LanguageContext'
-import { HomePage } from './pages/HomePage'
-import { NotFoundPage } from './pages/NotFoundPage'
-import { ProjectsPage } from './pages/ProjectsPage'
+import { Desktop } from './desktop/Desktop'
 
 function normalizePath(path: string) {
   return path.length > 1 ? path.replace(/\/+$/, '') : path
@@ -24,26 +20,18 @@ export function App() {
     const isProjects = path === '/projects'
     const isNotFound = path !== '/' && !isProjects
     const title = locale === 'zh'
-      ? isNotFound ? '页面不存在 | Frank' : isProjects ? '项目 | Frank' : 'Frank | AI Agent、Codex 工具与自动化'
-      : isNotFound ? 'Page not found | Frank' : isProjects ? 'Projects | Frank' : 'Frank | AI agents, Codex tools, and automation'
+      ? isNotFound ? '找不到文件 | Frank 的桌面' : isProjects ? '我的项目 | Frank 的桌面' : 'Frank 的桌面 | 工具与笔记'
+      : isNotFound ? "File not found | Frank's desktop" : isProjects ? "My projects | Frank's desktop" : "Frank's desktop | Tools and notes"
     const description = locale === 'zh'
-      ? 'Frank 的个人网站，记录 AI Agent、Codex 工具、自动化项目和实践笔记。'
-      : "Frank's site for AI agents, Codex tools, automation projects, and working notes."
+      ? '打开 Frank 的桌面，看看 AI Agent、开发工具与自动化项目，或读一篇实践笔记。'
+      : "Explore Frank's desktop: AI agents, developer tools, automation projects, and practical notes."
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `https://webfrank.top${isNotFound ? '/' : path}`)
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://webfrank.top${isNotFound ? '/' : path}`)
   }, [locale, path])
 
-  const page = path === '/' ? <HomePage /> : path === '/projects' ? <ProjectsPage /> : <NotFoundPage />
-
-  return (
-    <div className="site-frame">
-      <a className="skip-link" href="#main-content">{locale === 'zh' ? '跳到主要内容' : 'Skip to main content'}</a>
-      <Header key={path} path={path} />
-      <main id="main-content">{page}</main>
-      <Footer />
-    </div>
-  )
+  return <Desktop path={path} />
 }

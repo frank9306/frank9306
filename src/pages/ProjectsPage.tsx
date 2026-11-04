@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
 import { useLanguage } from '../context/LanguageContext'
 import { useProjects } from '../hooks/useProjects'
+import { profileLinks } from '../data/projects'
 
 export function ProjectsPage() {
   const { locale } = useLanguage()
@@ -14,25 +15,27 @@ export function ProjectsPage() {
   return (
     <div className="projects-page page-shell">
       <header className="page-header">
-        <h1>{zh ? '项目' : 'Projects'}</h1>
-        <p>{zh ? '这里放的是我仍在用、也仍在维护的项目。每一个都对应一个自己遇到过的问题。' : 'These are projects I still use and maintain. Each one started with a problem I ran into myself.'}</p>
+        <h1>{zh ? '项目文件夹' : 'Project folder'}</h1>
+        <p>{zh ? '打开一个仓库，看看工具是怎样做出来的。' : 'Open a repository and see how a tool is built.'}</p>
       </header>
       {source === 'fallback' && !loading && (
-        <p className="data-notice" role="status">{zh ? 'GitHub 暂时不可访问，当前显示最近保存的项目数据。' : 'GitHub is temporarily unavailable. Showing the latest saved project data.'}</p>
+        <p className="data-notice" role="status">{zh ? '暂时连不上 GitHub，先看看本地保存的项目。可直接打开仓库，或稍后刷新重试。' : 'GitHub is out of reach. These are locally saved projects. Open a repository directly, or refresh to try again.'}</p>
       )}
-      <div className="project-grid projects-grid">
+      {source === 'cache' && !loading && <p className="data-notice" role="status">{zh ? '正在查看一小时内缓存的 GitHub 项目。' : 'Viewing GitHub projects cached within the last hour.'}</p>}
+      {loading && <p className="data-notice" role="status">{zh ? '正在读取 GitHub 项目…' : 'Reading GitHub projects…'}</p>}
+      {!loading && projects.length === 0 && <div className="empty-folder"><p>{zh ? '这个文件夹暂时没有项目。' : 'There are no projects in this folder yet.'}</p><a href={profileLinks.github} target="_blank" rel="noreferrer">{zh ? '前往 GitHub 查看' : 'Check on GitHub'}<span aria-hidden="true"> ↗</span></a></div>}
+      <div className="project-grid projects-grid" aria-busy={loading}>
         {visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} loading={loading} />)}
       </div>
       {canExpand && (
         <div className="projects-more">
           <button className="button button-secondary" type="button" onClick={() => setExpanded(true)}>
-            {zh ? '显示更多' : 'Show more projects'}
+            {zh ? '展开更多项目（最多 10 项）' : 'Show more projects (up to 10)'}
           </button>
         </div>
       )}
       <div className="projects-footnote">
-        <span>{zh ? '数据来源' : 'Data source'}</span>
-        <p>{zh ? '仓库说明、主题、Stars、主要语言和更新时间来自 GitHub 公共 API；不可用时显示本地项目快照。' : 'Descriptions, topics, stars, primary language, and update dates come from the public GitHub API; local project snapshots appear when it is unavailable.'}</p>
+        <p>{zh ? '来源：GitHub 公共仓库 · 按更新时间排列 · 不含 Fork 与归档项目' : 'Source: public GitHub repositories · Latest updates first · Forks and archives excluded'}</p>
       </div>
     </div>
   )

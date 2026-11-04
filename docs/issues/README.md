@@ -34,6 +34,7 @@ None.
 | [ISSUE-0009](ISSUE-0009-build-a-terminal-style-github-profile-with-live-public-statistics.md) | Build a terminal-style GitHub profile with live public statistics |
 | [ISSUE-0010](ISSUE-0010-restore-likeness-and-proportions-in-the-github-ascii-portrait.md) | Restore likeness and proportions in the GitHub ASCII portrait |
 | [ISSUE-0011](ISSUE-0011-ground-the-github-introduction-in-the-current-public-repositories.md) | Ground the public GitHub introduction in the repository portfolio |
+| [ISSUE-0012](ISSUE-0012-redesign-portfolio-as-a-retro-computer-desktop.md) | Redesign portfolio as a retro computer desktop |
 
 ## Cancelled
 
