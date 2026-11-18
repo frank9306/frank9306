@@ -1,12 +1,12 @@
 {
-  "repositories": 11,
+  "repositories": 10,
   "stars": 10,
   "forks": 1,
-  "followers": 4,
-  "updatedAt": "2026-11-17T18:30:46.125Z",
+  "followers": 5,
+  "updatedAt": "2026-11-18T18:29:15.451Z",
   "period": {
-    "from": "2025-11-17T18:30:46.125Z",
-    "to": "2026-11-17T18:30:46.125Z"
+    "from": "2025-11-18T18:29:15.451Z",
+    "to": "2026-11-18T18:29:15.451Z"
   },
   "commits": 119,
   "pullRequests": 1,
